@@ -9,14 +9,12 @@ const UserSchema = new Schema(UserSchemaFields, {
   timestamps: true,
 });
 
-const User = model<IUserDoc, IUserModel>('User', UserSchema);
-
-UserSchema.methods.generateAuthToken = async function () {
+UserSchema.methods.generateAuthToken = function () {
   const token = jwt.sign({ _id: this._id.toString() }, process.env.JWT_SECRET || '');
   return token;
 };
 
-UserSchema.statics.findByCredentials = async (email: string, password: string) => {
+UserSchema.statics.findByCredentials = async function (email: string, password: string) {
   const user = await User.findOne({ email });
 
   if (!user) {
@@ -46,5 +44,7 @@ UserSchema.pre('save', async function (this: IUserDoc, next: HookNextFunction) {
 
   next();
 });
+
+const User = model<IUserDoc, IUserModel>('User', UserSchema);
 
 export default User;

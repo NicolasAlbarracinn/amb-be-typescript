@@ -12,9 +12,9 @@ export interface IUser {
 }
 
 export interface IUserDoc extends IUser, Document {
-  generateAuthToken: () => string;
+  generateAuthToken(): string;
 }
 
 export interface IUserModel extends Model<IUserDoc> {
-  findByCredentials: (email: string, password: string) => Promise<IUserDoc>;
+  findByCredentials(email: string, password: string): Promise<any>;
 }

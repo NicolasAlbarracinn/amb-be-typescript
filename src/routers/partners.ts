@@ -5,7 +5,6 @@ const partnerRoutes = Router();
 partnerRoutes
   .route('/')
   .get((req, res) => {
-    console.log('kdask');
     res.send('partners');
   })
   .post((req, res) => {

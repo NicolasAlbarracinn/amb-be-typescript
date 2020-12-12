@@ -1,22 +1,14 @@
 import { Router } from 'express';
+import { protect } from '../middleware/validateUser';
+import { login, logout, profile, updateProfile } from '../controllers/userControllers';
 
 const userRoutes = Router();
-//TODO controllers
-userRoutes.post('/', (req, res) => {
-  res.send('user');
-});
-userRoutes.post('/login', (req, res) => {
-  res.send('user');
-});
-userRoutes.get('/logout', (req, res) => {
-  res.send('user');
-});
 
-userRoutes.post('/profile', (req, res) => {
-  res.send('user');
-});
-userRoutes.patch('/profile/edit', (req, res) => {
-  res.send('user');
-});
+userRoutes.post('/login', login);
+userRoutes.get('/logout', logout);
+
+userRoutes.use(protect);
+userRoutes.post('/profile', profile);
+userRoutes.patch('/profile/edit', updateProfile);
 
 export default userRoutes;
