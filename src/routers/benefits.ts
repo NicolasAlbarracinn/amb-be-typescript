@@ -1,12 +1,12 @@
 import { Router } from 'express';
+import { protect } from '../middleware/validateUser';
+import { parnetInfo, createBenefit } from '../controllers/benefitsController';
 
 const benefitsRoutes = Router();
-//TODO controllers
-benefitsRoutes.get('/:partnerId', (req, res) => {
-  res.send('benefits');
-});
-benefitsRoutes.post('', (req, res) => {
-  res.send('benefits');
-});
+
+benefitsRoutes.use(protect);
+
+benefitsRoutes.get('/:partnerId', parnetInfo);
+benefitsRoutes.post('/', createBenefit);
 
 export default benefitsRoutes;

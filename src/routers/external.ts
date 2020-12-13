@@ -1,9 +1,10 @@
 import { Router } from 'express';
+import { veraz } from '../controllers/verazControllers';
+import { protect } from '../middleware/validateUser';
 
-const extenarlRoutes = Router();
-//TODO controllers
-extenarlRoutes.get('/renaper', (req, res) => {
-  res.send('external');
-});
+const externalRoutes = Router();
 
-export default extenarlRoutes;
+externalRoutes.use(protect);
+externalRoutes.get('/veraz', veraz);
+
+export default externalRoutes;
