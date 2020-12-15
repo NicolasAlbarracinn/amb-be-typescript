@@ -1,5 +1,5 @@
 import app from './app';
-import './db/mongoose';
+import '/db/mongoose';
 
 const port = process.env.PORT;
 
