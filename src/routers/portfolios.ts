@@ -1,11 +1,11 @@
 import { Router } from 'express';
-import { getLenderData, createLender } from '../controllers/lendersController';
+import { createPortfolio, getLendersList } from '../controllers/portfoliosControllers';
 import { protect } from '../middleware/validateUser';
 
 const externalRoutes = Router();
 
 externalRoutes.use(protect);
-externalRoutes.post('/', createLender);
-externalRoutes.get('/:cuit', getLenderData);
+externalRoutes.post('/', createPortfolio);
+externalRoutes.get('/lenders', getLendersList);
 
 export default externalRoutes;
