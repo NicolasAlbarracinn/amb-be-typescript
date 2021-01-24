@@ -7,6 +7,6 @@ const LenderSchema = new Schema(LenderSchemaFields, {
   timestamps: true,
 });
 
-const Lender = model<ILenderDoc>('Portfolio', LenderSchema);
+const Lender = model<ILenderDoc>('Lender', LenderSchema);
 
 export default Lender;
