@@ -1,4 +1,5 @@
-import { Document } from 'mongoose';
+import { Document, Types } from 'mongoose';
+import { ILenderDoc } from '../lender/types';
 
 export interface IPortfolio {
   portfolioTypes: 'Sin fines determinados' | 'Ayudas economicas' | 'Vacaciones';
@@ -8,6 +9,8 @@ export interface IPortfolio {
   minDues: number; //Minimo debe ser 0
   administrativeExpense: number;
   monthlyCashRate: number; // poner una descripcion T.E.M% | Minimo 0 y se expresa en %
+  nominalAnulRate: number;
+  anualCashRate: number;
   financialTotal: number; //poner descripcion C.F.T% | Minimo 0 y se expresa en %
   validSince: string; // es una fecha
   validTo: string; //fecha
@@ -15,7 +18,7 @@ export interface IPortfolio {
   maxCapital: number; //Minimo debe ser 0
   maxDues: number; // maximo 120;
   cancellationExpense: number;
-  lender: '9 de Mayo' | 'SAEM' | 'HUGER' | 'DAP' | 'MEFIN'; //va a depender de la lista de fondista-- en db agregar una realcion a lista de fondista
+  lender: Types.ObjectId | ILenderDoc; //va a depender de la lista de fondista-- en db agregar una realcion a lista de fondista
   bankLiquidation: ILiquidation;
   assetsLiquidation: ILiquidation;
 }
