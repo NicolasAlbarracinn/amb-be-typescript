@@ -145,4 +145,32 @@ export const PortfolioSchemaFields: Record<keyof IPortfolio, any> = {
       required: true,
     },
   },
+  plans: [
+    {
+      plan: {
+        type: String,
+        required: true,
+      },
+      amountGranted: {
+        type: Number,
+        required: true,
+      },
+      signatureAmount: {
+        type: Number,
+        required: true,
+      },
+      dues: [
+        {
+          duesQuantity: {
+            type: String,
+            required: true,
+          },
+          duesAmount: {
+            type: String,
+            required: true,
+          },
+        },
+      ],
+    },
+  ],
 };

@@ -15,6 +15,7 @@ fs.readdirSync(__dirname).forEach(async file => {
     router.use(path, route.default);
   } catch (err) {
     //TODO: add error logger
+    console.log('errorrrrrrrrrrr');
     console.log(err);
   }
 });
