@@ -1,7 +1,7 @@
 export const lenderData = {
   cuit: '20372463288', // puede repertise?
   lenderName: 'pago a destiempo te rompemos la piernas',
-  personType: 'responsable inscriptio',
+  personType: 'fisica',
   name: 'jp',
   lastName: 'lorek',
   businessName: 'pago a destiempo te rompemos la piernas',
@@ -13,7 +13,7 @@ export const lenderData = {
   economicActivity: {
     type: 'prestamista',
     order: 'prestamista',
-    registrationPeriod: '23/11/2010',
+    registrationPeriod: '11-23-2010',
   },
   address: {
     aptNumber: 'C',

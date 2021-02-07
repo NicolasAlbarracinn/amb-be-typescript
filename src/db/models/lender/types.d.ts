@@ -14,6 +14,7 @@ export interface ILender {
   phone: number;
   economicActivity: IEconomicActivity;
   address: IAddress;
+  files: Record<string, unknown>;
 }
 
 export interface IEconomicActivity {

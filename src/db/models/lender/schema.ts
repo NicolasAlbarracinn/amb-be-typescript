@@ -93,4 +93,7 @@ export const LenderSchemaFields: Record<keyof ILender, any> = {
       required: false,
     },
   },
+  files: {
+    type: Object,
+  },
 };
