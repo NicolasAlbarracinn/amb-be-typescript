@@ -4,8 +4,7 @@ import { IPortfolio } from './types';
 export const PortfolioSchemaFields: Record<keyof IPortfolio, any> = {
   planId: {
     type: Number,
-    required: true,
-    unique: true,
+    default: 1,
   },
   portfolioTypes: {
     type: String,
@@ -34,11 +33,25 @@ export const PortfolioSchemaFields: Record<keyof IPortfolio, any> = {
     type: Number,
     required: true,
     min: 0,
+    max: 100,
+  },
+  nominalAnulRate: {
+    type: Number,
+    required: true,
+    min: 0,
+    max: 100,
+  },
+  anualCashRate: {
+    type: Number,
+    required: true,
+    min: 0,
+    max: 100,
   },
   financialTotal: {
     type: Number,
     required: true,
     min: 0,
+    max: 100,
   },
   validSince: {
     type: Date,
