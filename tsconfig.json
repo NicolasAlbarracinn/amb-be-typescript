@@ -2,7 +2,7 @@
   "compilerOptions": {
     "module": "commonjs",
     "esModuleInterop": true,
-    "target": "es6",
+    "target": "es5",
     "noImplicitAny": true,
     "moduleResolution": "node",
     "sourceMap": true,
@@ -15,5 +15,6 @@
     },
     "rootDirs": ["src"]
   },
-  "include": ["src/**/*.ts"]
+  "include": ["src/**/*.ts"],
+  "exclude": ["node_modules", "dist"]
 }

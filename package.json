@@ -4,10 +4,10 @@
   "description": "",
   "main": "src/index.ts",
   "scripts": {
-    "build-ts": "tsc",
+    "build-ts": "tsc -p .",
     "postinstall": "yarn run build-ts",
-    "start": "yarn run serve",
-    "serve": "node dist/server.js",
+    "start": "ts-node src/index.ts",
+    "serve": "node dist/index.js",
     "start:dev": "yarn run build:dev",
     "build:dev": "env-cmd -f ./config/dev.env nodemon -r --exec ts-node tsconfig-paths/register src/index.ts -e ts",
     "test": "env-cmd ./config/dev.env jest --watchAll --runInBand"
@@ -31,7 +31,6 @@
     "@types/express": "^4.17.9",
     "@types/jsonwebtoken": "^8.5.0",
     "@types/lodash": "^4.14.165",
-    "@types/mongoose": "^5.10.2",
     "@types/node": "^14.14.11",
     "@types/validator": "^13.1.1",
     "@typescript-eslint/eslint-plugin": "^4.9.1",

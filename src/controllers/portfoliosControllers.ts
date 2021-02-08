@@ -5,11 +5,11 @@ import { RequestHandler } from 'express';
 
 import Portfolios from '../db/models/portfolio';
 import Lenders from '../db/models/lender';
-import { IplanList } from 'db/models/portfolio/types';
+import { IplanList } from '../db/models/portfolio/types';
 
 import catchAsync from '../utils/catchAsync';
 import AppError from '../utils/errorHandler';
-import { getValueForNextSequence } from 'utils/sequenceValues';
+import { getValueForNextSequence } from '../utils/sequenceValues';
 
 const parseRespose = (portfolio: Record<string, unknown>): IplanList[] => {
   const parsedPlans: IplanList[] = [];
