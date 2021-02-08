@@ -5,8 +5,8 @@
   "main": "src/index.ts",
   "scripts": {
     "build-ts": "tsc",
-    "postinstall": "npm run build-ts",
-    "start": "npm run serve",
+    "postinstall": "yarn run build-ts",
+    "start": "yarn run serve",
     "serve": "node dist/server.js",
     "start:dev": "yarn run build:dev",
     "build:dev": "env-cmd -f ./config/dev.env nodemon -r --exec ts-node tsconfig-paths/register src/index.ts -e ts",
