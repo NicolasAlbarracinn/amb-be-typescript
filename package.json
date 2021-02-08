@@ -5,11 +5,11 @@
   "main": "src/index.ts",
   "scripts": {
     "build-ts": "tsc -p .",
+    "build:dev": "env-cmd -f ./config/dev.env nodemon -r --exec ts-node tsconfig-paths/register src/index.ts -e ts",
     "postinstall": "yarn run build-ts",
     "start": "ts-node dist/index.js",
-    "serve": "node dist/index.js",
+    "start:prod": "env-cmd -f ./config/dev.env ts-node dist/index.js",
     "start:dev": "yarn run build:dev",
-    "build:dev": "env-cmd -f ./config/dev.env nodemon -r --exec ts-node tsconfig-paths/register src/index.ts -e ts",
     "test": "env-cmd ./config/dev.env jest --watchAll --runInBand"
   },
   "author": "",

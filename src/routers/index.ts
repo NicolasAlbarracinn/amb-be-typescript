@@ -3,11 +3,12 @@ import { snakeCase } from 'lodash';
 import fs from 'fs';
 
 const router = Router();
+const FILE_EXTENSION_REGEX = /^.*\.(js|ts)$/;
 
 fs.readdirSync(__dirname).forEach(async file => {
   try {
-    if (file === 'index.ts') return;
-    const path = '/' + (file !== 'root.ts' ? snakeCase(file.replace('.ts', '')) : '');
+    if (file === 'index.ts' || file === 'index.js') return;
+    const path = '/' + (file !== 'root.ts' ? snakeCase(file.replace(FILE_EXTENSION_REGEX, '')) : '');
 
     const routePath = await (await import('path')).join(__dirname, file);
     const route = await import(`${routePath}`);
