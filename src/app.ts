@@ -8,11 +8,20 @@ import { errorRequestHandler } from './middleware/errorRequestHandler';
 
 const app = express();
 
-app.use(cors<Request>());
+app.disable('x-powered-by');
+app.use(
+  cors<Request>({
+    origin: process.env.ALLOWED_URL?.split(' ') || '*',
+    credentials: true,
+  }),
+);
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cookieParser());
 
+app.get('/ping', (req, res, next) => {
+  res.send('pong');
+});
 app.use('/api', routes);
 
 app.all('*', (req, res, next) => {
