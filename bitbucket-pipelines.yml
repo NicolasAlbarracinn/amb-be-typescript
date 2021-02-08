@@ -1,0 +1,15 @@
+image: node:12.16.0
+clone:
+  depth: full
+pipelines:
+  branches:
+    release/1.0:
+      - step:
+          caches:
+            - node
+          name: 'Deployment to Staging'
+          deployment: staging
+          script:
+            - yarn install
+            - yarn run postinstall
+            - git push -f https://heroku:$HEROKU_API_KEY@git.heroku.com/$HEROKU_APP_NAME.git release/1.0:master
