@@ -7,8 +7,8 @@ pipelines:
       - step:
           caches:
             - node
-          name: 'Deployment to Staging'
-          deployment: staging
+          name: 'Deployment to Test'
+          deployment: Test
           script:
             - yarn install
             - yarn run postinstall
