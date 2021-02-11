@@ -1,8 +1,10 @@
 import { Router } from 'express';
 import { protect } from '../middleware/validateUser';
-import { parnetInfo, createBenefit } from '../controllers/benefitsController';
+import { parnetInfo, createBenefit, planList } from '../controllers/benefitsController';
 
 const benefitsRoutes = Router();
+
+benefitsRoutes.get('/planList/:portfolioTypes', planList);
 
 benefitsRoutes.use(protect);
 

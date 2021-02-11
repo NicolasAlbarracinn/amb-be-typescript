@@ -2,6 +2,7 @@ import { RequestHandler } from 'express';
 
 import Benefits from '../db/models/benefit';
 import Partners from '../db/models/partner';
+import Plan from '../db/models/plan';
 
 import catchAsync from '../utils/catchAsync';
 import AppError from '../utils/errorHandler';
@@ -20,6 +21,21 @@ const createBenefitFunction: RequestHandler = async (req, res, next) => {
   res.status(200).json({
     status: 'success',
     data: { benefitId: newBenefitsId },
+  });
+};
+
+const getPlanList: RequestHandler = async (req, res, next) => {
+  const { portfolioTypes } = req.params;
+
+  if (!portfolioTypes) {
+    return next(new AppError('Typo de cartera no proporcionado', 404));
+  }
+
+  const planList = await Plan.find().where({ portfolioTypes });
+
+  res.status(200).json({
+    status: 'success',
+    data: planList,
   });
 };
 
@@ -48,3 +64,4 @@ const parnetInfoFunction: RequestHandler = async (req, res, next) => {
 
 export const createBenefit = catchAsync(createBenefitFunction);
 export const parnetInfo = catchAsync(parnetInfoFunction);
+export const planList = catchAsync(getPlanList);

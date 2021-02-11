@@ -1,5 +1,6 @@
 import { Document, Types } from 'mongoose';
 import { ILenderDoc } from '../lender/types';
+import { IPlanDoc } from '../plan/types';
 
 export interface IPortfolio {
   portfolioTypes: 'Sin fines determinados' | 'Ayudas economicas' | 'Vacaciones';
@@ -21,7 +22,7 @@ export interface IPortfolio {
   lender: Types.ObjectId | ILenderDoc; //va a depender de la lista de fondista-- en db agregar una realcion a lista de fondista
   bankLiquidation: ILiquidation;
   assetsLiquidation: ILiquidation;
-  plans: Array<IplanList>;
+  plans: Array<Types.ObjectId | IPlanDoc>;
 }
 
 interface ILiquidation {
@@ -31,18 +32,6 @@ interface ILiquidation {
   percentCreditTax: number; //Debe aparecer el número 10 pero con posibilidad de edición
   percentBankingExpenses: number; //Debe aparecer el número 0 pero con posibilidad de edición
   typeOfCalculation: 'Por lo enviado' | 'Por lo debitado'; //Debe aparecer Por lo Enviado con posibilidad de edición
-}
-
-export interface IPlan {
-  plan: string;
-  amountGranted: string;
-  signatureAmount: string;
-}
-
-export type IDues = Array<{ duesQuantity: string; duesAmount: string }>;
-
-export interface IplanList extends IPlan {
-  dues: IDues;
 }
 
 export interface IPortfolioDoc extends IPortfolio, Document {}

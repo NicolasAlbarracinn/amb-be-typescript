@@ -5,18 +5,19 @@ import { RequestHandler } from 'express';
 
 import Portfolios from '../db/models/portfolio';
 import Lenders from '../db/models/lender';
-import { IplanList } from 'db/models/portfolio/types';
+import { IPlan } from '../db/models/plan/types';
+import Plan from '../db/models/plan';
 
 import catchAsync from '../utils/catchAsync';
 import AppError from '../utils/errorHandler';
 import { getValueForNextSequence } from 'utils/sequenceValues';
 
-const parseRespose = (portfolio: Record<string, unknown>): IplanList[] => {
-  const parsedPlans: IplanList[] = [];
+const parseRespose = (portfolio: Record<string, unknown>, portfolioTypes: string): IPlan[] => {
+  const parsedPlans: IPlan[] = [];
   Object.keys(portfolio)
     .filter(k => k !== 'isValid')
     .forEach(k => {
-      parsedPlans.push(portfolio[k] as IplanList);
+      parsedPlans.push({ ...(portfolio[k] as IPlan), portfolioTypes } as IPlan);
     });
 
   return parsedPlans;
@@ -27,11 +28,14 @@ const createPorfolioFunction: RequestHandler = async (req, res, next) => {
   if (!req.body) {
     return next(new AppError('datos incompletos', 404));
   }
+  const parsedPlan = parseRespose(req.body.plans, req.body.portfolioTypes);
 
-  req.body.plans = parseRespose(req.body.plans);
+  const planList = await Plan.insertMany(parsedPlan as Array<IPlan>);
 
+  const plans = planList.map(i => i._id);
   const lender = new Portfolios({
     ...req.body,
+    plans,
     planId,
   });
 
