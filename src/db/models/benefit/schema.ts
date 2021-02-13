@@ -9,7 +9,6 @@ export const BenefitSchemaFields: Record<keyof IBenefit, any> = {
   },
   lotNumber: {
     type: String,
-    required: true,
   },
   benefitType: {
     type: String,

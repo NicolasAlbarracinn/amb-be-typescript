@@ -86,7 +86,6 @@ export const PortfolioSchemaFields: Record<keyof IPortfolio, any> = {
     //va a depender de la lista de fondista-- en db agregar una realcion a lista de fondista
     type: Schema.Types.ObjectId,
     ref: 'Lender',
-    enum: ['9 de Mayo', 'SAEM', 'HUGER', 'DAP', 'MEFIN'],
     required: true,
   },
   bankLiquidation: {
@@ -147,30 +146,9 @@ export const PortfolioSchemaFields: Record<keyof IPortfolio, any> = {
   },
   plans: [
     {
-      plan: {
-        type: String,
-        required: true,
-      },
-      amountGranted: {
-        type: Number,
-        required: true,
-      },
-      signatureAmount: {
-        type: Number,
-        required: true,
-      },
-      dues: [
-        {
-          duesQuantity: {
-            type: String,
-            required: true,
-          },
-          duesAmount: {
-            type: String,
-            required: true,
-          },
-        },
-      ],
+      type: Schema.Types.ObjectId,
+      ref: 'Plan',
+      required: true,
     },
   ],
 };
