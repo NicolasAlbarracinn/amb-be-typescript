@@ -3,7 +3,7 @@ import { IUserDoc } from '../user/types';
 
 export interface IBenefit {
   benefitId: number;
-  lotNumber: string;
+  lotNumber?: string;
   benefitType: string;
   certificateNumber: string;
   applicationDate: string;

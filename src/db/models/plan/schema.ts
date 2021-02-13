@@ -1,3 +1,4 @@
+import { Schema } from 'mongoose';
 import { IPlan } from './types';
 
 export const PlanSchemaFields: Record<keyof IPlan, any> = {
@@ -18,6 +19,11 @@ export const PlanSchemaFields: Record<keyof IPlan, any> = {
     type: String,
     enum: ['Sin fines determinados', 'Ayudas economicas', 'Vacaciones'],
     default: 'Sin fines determinados',
+    required: true,
+  },
+  lender: {
+    type: Schema.Types.ObjectId,
+    ref: 'Lender',
     required: true,
   },
   dues: [

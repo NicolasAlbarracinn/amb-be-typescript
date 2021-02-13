@@ -1,4 +1,5 @@
-import { Document } from 'mongoose';
+import { Document, Types } from 'mongoose';
+import { ILenderDoc } from '../lender/types';
 
 export type IDues = Array<{ duesQuantity: string; duesAmount: string }>;
 
@@ -7,6 +8,7 @@ export interface IPlan {
   amountGranted: string;
   signatureAmount: string;
   portfolioTypes: 'Sin fines determinados' | 'Ayudas economicas' | 'Vacaciones';
+  lender: Types.ObjectId | ILenderDoc;
   dues: IDues;
 }
 

@@ -15,6 +15,7 @@ const getPlanList: RequestHandler = async (req, res, next) => {
   }
 
   const planList = await Plan.find().where('portfolioTypes').equals(portfolioTypes);
+
   res.status(200).json({
     status: 'success',
     data: planList,
@@ -23,7 +24,7 @@ const getPlanList: RequestHandler = async (req, res, next) => {
 
 const getPlanByID: RequestHandler = async (req, res, next) => {
   const { id } = req.params;
-  console.log('planID');
+
   if (!id) {
     return next(new AppError('id no proporcionado', 404));
   }
