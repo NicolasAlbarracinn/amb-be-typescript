@@ -9,6 +9,7 @@ import { getValueForNextSequence } from '../utils/sequenceValues';
 
 const createBenefitFunction: RequestHandler = async (req, res, next) => {
   const newBenefitsId = await getValueForNextSequence(Benefits, 'benefitId');
+
   const benefit = new Benefits({
     ...req.body,
     benefitId: newBenefitsId,

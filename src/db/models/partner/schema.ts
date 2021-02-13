@@ -160,7 +160,6 @@ export const PartnerSchemaFields: Record<keyof IPartner, any> = {
       required: false,
     },
   },
-
   createdBy: {
     type: Schema.Types.ObjectId,
     ref: 'User',
