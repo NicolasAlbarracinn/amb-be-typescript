@@ -1,4 +1,4 @@
-import { Types } from 'mongoose';
+// import { Types } from 'mongoose';
 import { RequestHandler, RequestParamHandler } from 'express';
 
 import Benefits from '../db/models/benefit';
@@ -66,16 +66,13 @@ const getBenefitsList: RequestParamHandler = async (req, res, next) => {
     },
   });
 
-  const [
-    {
-      data,
-      metadata: [{ count }],
-    },
-  ] = await Benefits.aggregate(query);
+  const [{ data, metadata }] = await Benefits.aggregate(query);
 
   if (!data) {
     return next(new AppError('aun no se a cargado ninguna prestacion en el sistema', 400));
   }
+
+  const count = metadata[0]?.count || 0;
 
   res.status(200).json({
     status: 'success',
@@ -89,7 +86,7 @@ const getBenefitDetail: RequestParamHandler = async (req, res, next) => {
     return next(new AppError('numero de prestacion no proporcionado', 404));
   }
 
-  const data = await Benefits.findOne({ _id: Types.ObjectId(req.params.benefitID) });
+  const data = await Benefits.findOne({ benefitId: parseInt(req.params.benefitID) });
 
   if (!data) {
     return next(new AppError('No se a encotrado prestacion para el id proporcionado', 400));
@@ -101,7 +98,75 @@ const getBenefitDetail: RequestParamHandler = async (req, res, next) => {
   });
 };
 
+const updateDetail: RequestParamHandler = async (req, res, next) => {
+  if (!req.params.benefitID) {
+    return next(new AppError('No se a proporcionado el id de prestacion', 404));
+  }
+
+  if (!req.body) {
+    return next(new AppError('No se a proporcionado los datos de la prestacion ', 404));
+  }
+
+  const filter = { benefitId: parseInt(req.params.benefitID) };
+
+  const data = await Benefits.findOneAndUpdate(filter, { ...req.body });
+
+  res.status(200).json({
+    status: 'success',
+    data,
+  });
+};
+
+const updateStatus: RequestParamHandler = async (req, res, next) => {
+  if (!req.params.benefitID) {
+    return next(new AppError('No se a proporcionado el id de prestacion', 404));
+  }
+
+  if (!req.body.status) {
+    return next(new AppError('No se a proporcionado el nuevo estado de la prestacion ', 404));
+  }
+
+  const filter = { benefitId: parseInt(req.params.benefitID) };
+  const update = { benefitStatus: req.body.status };
+
+  const data = await Benefits.findOneAndUpdate(filter, update);
+
+  if (!data) {
+    return next(new AppError('No se encontro registro con el ID proporcionado', 404));
+  }
+
+  res.status(200).json({
+    status: 'success',
+    data: {
+      id: data.benefitId,
+      status: data.benefitStatus,
+    },
+  });
+};
+
+const remove: RequestParamHandler = async (req, res, next) => {
+  if (!req.params.benefitID) {
+    return next(new AppError('No se a proporcionado el id de prestacion', 404));
+  }
+
+  const data = await Benefits.findByIdAndDelete(req.params.benefitID, {
+    useFindAndModify: false,
+  });
+
+  if (!data) {
+    return next(new AppError('No se encontro registro con el ID proporcionado', 404));
+  }
+
+  res.status(204).json({
+    status: 'success',
+    data,
+  });
+};
+
 export const createBenefit = catchAsync(createBenefitFunction);
 export const parnetInfo = catchAsync(parnetInfoFunction);
 export const benefitList = catchAsync(getBenefitsList);
 export const benefitDetail = catchAsync(getBenefitDetail);
+export const benefitUdateStatus = catchAsync(updateStatus);
+export const benefitUpdateRecord = catchAsync(updateDetail);
+export const benefitDeleteRecord = catchAsync(remove);
