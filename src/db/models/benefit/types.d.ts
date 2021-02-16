@@ -50,6 +50,7 @@ export interface IBenefit {
   statusDate: string;
   partnerDetail: IPartnerInfo;
   distributionDetail: IDistributionInfo;
+  files?: Record<string, unknown>;
   createdBy: Types.ObjectId | IUserDoc;
   modifiedBy: Types.ObjectId | IUserDoc;
 }

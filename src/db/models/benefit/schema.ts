@@ -165,4 +165,7 @@ export const BenefitSchemaFields: Record<keyof IBenefit, any> = {
       type: String,
     },
   },
+  files: {
+    type: Object,
+  },
 };
