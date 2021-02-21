@@ -1,0 +1,1015 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <style>
+    @media print {
+      @page {
+        size: A4 portrait;
+      }
+    }
+
+    .container {
+      padding: 50px;
+      page-break-before: always
+    }
+
+    .header {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    .img-logo {
+      width: auto;
+      height: auto;
+    }
+
+    .header_info,
+    .info-section,
+    .row-item {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .info-section {
+      padding: 10px;
+    }
+
+    .row {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      border-top: 1px solid #000;
+      padding: 10px 0;
+    }
+
+    .row:last-child {
+      border-bottom: 1px solid #000;
+    }
+
+    .row-item {
+      flex: 1;
+    }
+
+    .row-item>label {
+      font-weight: 600;
+    }
+
+    .row-horizontal {
+      flex-direction: row;
+      align-items: center;
+    }
+
+    .row-vertical {
+      flex-direction: column;
+    }
+
+    .row-horizontal>span {
+      margin-left: 5px;
+    }
+
+    .secction-title {
+      width: 100%;
+      text-align: center;
+      padding: 15px;
+    }
+
+    .light-blue {
+      background-color: #729CFA;
+      color: #fff;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- PAGINA 1 -->
+  <div class="container">
+    <header class="header">
+      <img class="img-logo" src="images/ameboLogo.jpg" alt="amebo logo" />
+      <div class="header_info">
+        <label for="nSocio">N SOCIO:</label>
+        <span name="nSocio">{{partnerId}}</span>
+      </div>
+      <div>
+        <label for="nPrestacion">PRESTACIÓN:</label>
+        <span name="nPrestacion">21498</span>
+      </div>
+    </header>
+    <section class="info-section">
+      <div class="row">
+        <div class="row-item">
+          <label for="nomberApellido">APELLIDO Y NOMBRES:</label>
+          <span name="nomberApellido">jp lorek</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="row-item">
+          <label for="DOCUMENTO">NÚMERO DE DOCUMENTO:</label>
+          <span name="DOCUMENTO">DNI N 372346328</span>
+        </div>
+        <div class="row-item">
+          <label for="CUIT">CUIT/CUIL:</label>
+          <span name="CUIT">2037246288</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="row-item">
+          <label for="DOMICILIO">DOMICILIO:</label>
+          <span name="DOMICILIO">12596</span>
+        </div>
+        <div class="row-item">
+          <label for="PISO">PISO:</label>
+          <span name="PISO">12596</span>
+        </div>
+        <div class="row-item">
+          <label for="DEPTO">DEPTO:</label>
+          <span name="DEPTO">12596</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="row-item">
+          <label for="LOCALIDAD">LOCALIDAD:</label>
+          <span name="LOCALIDAD">12596</span>
+        </div>
+        <div class="row-item">
+          <label for="LOCALIDAD">DEPARTAMENTO:</label>
+          <span name="LOCALIDAD">12596</span>
+        </div>
+        <div class="row-item">
+          <label for="codigoPostal">CÓDIGO POSTAL:</label>
+          <span name="codigoPostal">12596</span>
+        </div>
+        <div class="row-item">
+          <label for="PROVINCIA">PROVINCIA:</label>
+          <span name="PROVINCIA">12596</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="row-item">
+          <label for="LOCALIDAD">TELÉFONO CELULAR:</label>
+          <span name="LOCALIDAD">12596</span>
+        </div>
+        <div class="row-item">
+          <label for="codigoPostal">TELÉFONO PREFERENCIAL:</label>
+          <span name="codigoPostal">12596</span>
+        </div>
+        <div class="row-item">
+          <label for="PROVINCIA">OTRO PREFERENCIAL:</label>
+          <span name="PROVINCIA">12596</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="row-item">
+          <label for="nomberApellido">CORREO ELECTRÓNICO:</label>
+          <span name="nomberApellido">jp lorek</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="row-item">
+          <label for="nomberApellido">REPARTICIÓN:</label>
+          <span name="nomberApellido">jp lorek</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="row-item">
+          <label for="LOCALIDAD">MONTO SOLICITADO:</label>
+          <span name="LOCALIDAD">12596</span>
+        </div>
+        <div class="row-item">
+          <label for="codigoPostal">CANTIDAD DE CUOTAS:</label>
+          <span name="codigoPostal">12596</span>
+        </div>
+        <div class="row-item">
+          <label for="PROVINCIA">MONTO CUOTA:</label>
+          <span name="PROVINCIA">12596</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="row-item">
+          <label for="LOCALIDAD">COMERCIALIZADOR:</label>
+          <span name="LOCALIDAD">12596</span>
+        </div>
+        <div class="row-item">
+          <label for="codigoPostal">SOLICITANTE:</label>
+          <span name="codigoPostal">12596</span>
+        </div>
+      </div>
+    </section>
+    <section class="info-section">
+      <div class="row">
+        <div class="row-item">
+          <label for="nomberApellido">MONTO AUTORIZADO:</label>
+          <span name="nomberApellido">50000</span>
+        </div>
+        <div class="row-item">
+          <label for="nomberApellido">CANTIDAD DE CUOTAS:</label>
+          <span name="nomberApellido">50000</span>
+        </div>
+        <div class="row-item">
+          <label for="nomberApellido">MONTO CUOTA:</label>
+          <span name="nomberApellido">50000</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="row-item">
+          <label for="DOCUMENTO">AUTORIZANTE:</label>
+          <span name="DOCUMENTO">DNI N 372346328</span>
+        </div>
+        <div class="row-item">
+          <label for="CUIT">VERIFICACIÓN TELEFÓNICA:</label>
+          <span name="CUIT">2037246288</span>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- PAGINA 2 -->
+  <div class="container">
+    <section class="info-section">
+      <h2 class="secction-title light-blue">SOLICITUD DE SOCIO</h1>
+        <div class="row">
+          <div class="row-item row-horizontal">
+            <label for="nomberApellido">ADHERENTE:</label>
+            <span style name="nomberApellido">SI</span>
+          </div>
+          <div class="row-item row-horizontal">
+            <label for="nomberApellido">ACTIVO:</label>
+            <span name="nomberApellido">--</span>
+          </div>
+          <div class="row-item row-horizontal">
+            <label for="nomberApellido">PARTICIPANTE:</label>
+            <span name="nomberApellido">--</span>
+          </div>
+          <div class="row-item row-horizontal">
+            <label for="nomberApellido">HONORARIO:</label>
+            <span name="nomberApellido">--</span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="row-item row-horizontal">
+            <label for="DOCUMENTO">ASOCIADO NRO:</label>
+            <span name="DOCUMENTO">12253</span>
+          </div>
+          <div class="row-item row-horizontal">
+            <label for="CUIT">FECHA:</label>
+            <span name="CUIT"></span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="row-item">
+            <label for="DOCUMENTO">APELLIDO Y NOMBRES::</label>
+            <span name="DOCUMENTO">jp lorek</span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="row-item">
+            <label for="DOCUMENTO">NACIONALIDAD:</label>
+            <span name="DOCUMENTO"></span>
+          </div>
+          <div class="row-item">
+            <label for="CUIT">LUGAR DE NACIMIENTO:</label>
+            <span name="CUIT"></span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="row-item">
+            <label for="DOCUMENTO">FECHA DE NAC.:</label>
+            <span name="DOCUMENTO"></span>
+          </div>
+          <div class="row-item">
+            <label for="CUIT">DNI:</label>
+            <span name="CUIT"></span>
+          </div>
+          <div class="row-item">
+            <label for="CUIT">CUIT/CUIL:</label>
+            <span name="CUIT"></span>
+          </div>
+          <div class="row-item">
+            <label for="CUIT">SEXO:</label>
+            <span name="CUIT"></span>
+          </div>
+          <div class="row-item">
+            <label for="CUIT">ESTADO CIVIL:</label>
+            <span name="CUIT"></span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="row-item">
+            <label for="DOMICILIO">DOMICILIO:</label>
+            <span name="DOMICILIO">12596</span>
+          </div>
+          <div class="row-item">
+            <label for="PISO">PISO:</label>
+            <span name="PISO">12596</span>
+          </div>
+          <div class="row-item">
+            <label for="DEPTO">DEPTO:</label>
+            <span name="DEPTO">12596</span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="row-item">
+            <label for="LOCALIDAD">LOCALIDAD:</label>
+            <span name="LOCALIDAD">12596</span>
+          </div>
+          <div class="row-item">
+            <label for="LOCALIDAD">DEPARTAMENTO:</label>
+            <span name="LOCALIDAD">12596</span>
+          </div>
+          <div class="row-item">
+            <label for="codigoPostal">CÓDIGO POSTAL:</label>
+            <span name="codigoPostal">12596</span>
+          </div>
+          <div class="row-item">
+            <label for="PROVINCIA">PROVINCIA:</label>
+            <span name="PROVINCIA">12596</span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="row-item">
+            <label for="LOCALIDAD">TELÉFONO CELULAR:</label>
+            <span name="LOCALIDAD">12596</span>
+          </div>
+          <div class="row-item">
+            <label for="codigoPostal">TELÉFONO PREFERENCIAL:</label>
+            <span name="codigoPostal">12596</span>
+          </div>
+          <div class="row-item">
+            <label for="PROVINCIA">OTRO PREFERENCIAL:</label>
+            <span name="PROVINCIA">12596</span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="row-item">
+            <label for="nomberApellido">CORREO ELECTRÓNICO:</label>
+            <span name="nomberApellido">jplorek@gmail.com</span>
+          </div>
+          <div class="row-item">
+            <label for="nomberApellido">PROFESION/OFICIO:</label>
+            <span name="nomberApellido">Empleado Público</span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="row-item">
+            <label for="nomberApellido">REPARTICIÓN:</label>
+            <span name="nomberApellido">jp lorek</span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="row-item">
+            <label for="LOCALIDAD">SUELDO BRUTO:</label>
+            <span name="LOCALIDAD"></span>
+          </div>
+          <div class="row-item">
+            <label for="LOCALIDAD">SUELDO NETO:</label>
+            <span name="LOCALIDAD"></span>
+          </div>
+          <div class="row-item">
+            <label for="codigoPostal">Nro. BENEFICIO/LEGAJO:</label>
+            <span name="codigoPostal"></span>
+          </div>
+          <div class="row-item">
+            <label for="PROVINCIA">PRESTACION Nro.:</label>
+            <span name="PROVINCIA"></span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="row-item">
+            <label for="nomberApellido">APELLIDO Y NOMBRE CONYUGE:</label>
+            <span name="nomberApellido"></span>
+          </div>
+          <div class="row-item">
+            <label for="nomberApellido">DNI CONYUGE:</label>
+            <span name="nomberApellido"></span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="row-item">
+            <label for="nomberApellido">GRUPO FAMILIAR:</label>
+            <span name="nomberApellido"></span>
+          </div>
+        </div>
+    </section>
+    <section class="info-section">
+      <h3 class="secction-title light-blue">A LA COMISIÓN DIRECTIVA DE LA ASOCIACIÓN MUTUAL EMPLEADOS BONAERENSES</h3>
+      <p>Solicito mi inscripción en calidad de asociado y de mis familiares anteriormente mencionados; a la vez que
+        autorizo a que se me descuente de mis haberes a través del Régimen Único de Códigos de Descuento (Decreto
+        243/18), sistema de cobro por débito directo por CBU, tarjeta de crédito, tarjeta de débito y/o por convenio
+        intermutual el importe correspondiente a las cuotas sociales, media cuota social con los sueldos anuales
+        complementarios( Junio – Diciembre, aprobada mediante Acta de Asamblea General Ordinaria celebrada el 27 de
+        Febrero del 2020 en el punto 6), cuotas por coseguro, cuotas de mantenimiento de los servicios y los gastos y
+        consumos que realice a través de AMEBO.El uso de los servicios implica mi aceptación de las condiciones vigentes
+        para el asociado hasta el día que por medio fehaciente les haga saber mi voluntad de dejar revestir tal
+        carácter, lo que ocurrirá solo a partir del momento en que sean canceladas todas mis obligaciones. Si por alguna
+        razón no se realizara el descuento sobre mis haberes, de los compromisos contraídos con AMEBO por los sistemas
+        mencionados, concurriré a la sede social de AMEBO o donde en el futuro se me indique con documento de identidad
+        y último recibo de haberes, dentro de las 72 horas de la fecha de cobro indicada por AMEBO para regularizar los
+        pagos.
+        Asimismo, notifico que he sido informada/o de las normas estatutarias y de las obligaciones y derechos
+        mencionados en los artículos 6 a 11; como también de los servicios que presta AMEBO a sus asociados por la que
+        doy conformidad para el cobro de la cuota social (inclusive media cuota social aguinaldo SAC) cuyo valor me ha
+        sido informado.
+      </p>
+      <h4 style="text-align: center;">SE DEJA CONSTANCIA QUE EL SOCIO POSEE UNA COPIA DE LA DOCUMENTACIÓN FIRMADA</h4>
+    </section>
+  </div>
+
+
+  <!-- PAGINA 3 -->
+
+  <div class="container">
+    <section class="info-section">
+      <h3 class="secction-title light-blue">CONDICIONES GENERALES</h3>
+      <ol>
+        <li>
+          <p>Autorizo en forma irrevocable a AMEBO a descontar de mis haberes a través del Régimen Único de Códigos de
+            Descuento (Decreto 243/18) o por el sistema de cobro por débito directo que posee o el que posea en el
+            futuro, en el Ente de la Administración Pública del Gobierno de la Provincia de Buenos Aires y/u organismo
+            empleador o por el mecanismo que el organismo implemente en el futuro para este particular, de la caja de
+            ahorro o cuenta corriente que poseo o poseyera, la suma del valor de la cuota resultante de acuerdo con el
+            plan suscripto (incluido mi grupo familiar detallado en el presente) a través de descuentos mensuales.</p>
+        </li>
+        <li>
+          <p>Por la presente declaro y garantizo bajo juramento:</p>
+          <ol type="a">
+            <li>Que la presente autorización de descuento se confiere en forma exclusiva a favor de AMEBO con el fin de
+              cancelar servicios, cuotas sociales, media cuota social con los sueldos anuales complementarios (Junio –
+              Diciembre), gastos de suscripción, administrativos o recupero de gastos y/o prestaciones recibidas.</li>
+            <li>La autorización irrevocable de descuento de haberes acordada por la presente la realizo de conformidad a
+              los siguientes términos y condiciones</li>
+          </ol>
+          <br />
+          <ol>
+            <li>
+              <p>A los fines de la presente, AMEBO BA 2814, domiciliada en calle 2 N.º 825 de la ciudad de La Plata,
+                provincia de Buenos Aires, se denomina a lo largo de la presente la MUTUAL</p>
+            </li>
+            <li>
+              <p>El lugar de pago es el de la MUTUAL y se establece que la mora se producirá de pleno derecho y en forma
+                automática por el solo vencimiento del plazo.</p>
+              <p>Presto igualmente expresa conformidad a fin de que los descuentos correspondientes al pago de cada una
+                de las cuotas sean practicadas sobre mis haberes en forma mensual, y ello a través de los informes que
+                en tal sentido emita la MUTUAL al Ente de la Administración Pública del Gobierno de la Provincia de
+                Buenos Aires y/u organismo Empleador, bajo Régimen Único de Códigos de Descuento de esta última;
+                quedando igualmente acordado que el descuento podrá realizarse a través del procedimiento y/o mecanismo
+                que en el futuro se disponga en reemplazo del actual.</p>
+            </li>
+            <li>3. Además, por el presente mandato autorizo a la MUTUAL a realizar las gestiones ante el Ente de la
+              Administración Pública del Gobierno de la Provincia de Buenos Aires y/u Organismo Empleador, tendientes a
+              que en el futuro se continúen realizando los descuentos de mis haberes sin interrupciones a través de
+              cualquier mecanismo que considere pertinente a dicho fin y ello hasta la cancelación de la totalidad de
+              las acreencias adeudadas de conformidad a las autorizaciones de descuento y/o solicitudes de servicios o
+              productos que sobre el particular hubiera suscripto.</li>
+            <li>4. En caso de renunciar a la MUTUAL, acepto en forma expresa que esta prosiga con los descuentos
+              correspondientes a las cuotas, autorizaciones de descuentos y/o solicitudes de servicios que hubiera
+              suscripto a favor de la MUTUAL y hasta finalizar tales cuotas pendientes. Acuerdo igualmente que mi
+              renuncia a la MUTUAL solo será operativa a partir de la total cancelación de los mencionados descuentos,
+              correspondiendo hasta dicha fecha el pago de la cuota social y/o gastos administrativos pendientes.</li>
+          </ol>
+        </li>
+      </ol>
+      <h4 style="text-align: center;">SE DEJA CONSTANCIA QUE EL SOCIO POSEE UNA COPIA DE LA DOCUMENTACIÓN FIRMADA</h4>
+    </section>
+
+    <section class="info-section">
+      <div style="border: none" class="row">
+        <div style="padding: 20px 10px;" class="row-item">
+          <div style="border-bottom: 1px solid #000;"></div>
+          <label style="text-align: center;" for="nomberApellido">FIRMA</label>
+        </div>
+        <div style="padding: 20px 10px;" class="row-item">
+          <div style="border-bottom: 1px solid #000;"></div>
+          <label style="text-align: center;" for="nomberApellido">ACLARACION</label>
+        </div>
+        <div style="padding: 20px 10px;" class="row-item">
+          <div style="border-bottom: 1px solid #000;"></div>
+          <label style="text-align: center;" for="nomberApellido">DNI:</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="row-item row-horizontal">
+          <label for="DOCUMENTO">Nro. ACTA/ CD</label>
+        </div>
+        <div class="row-item row-horizontal">
+          <label for="CUIT">FECHA ACTA</label>
+        </div>
+      </div>
+
+      <div style="border: none" class="row">
+        <div style="padding: 20px 10px;" class="row-item">
+          <label style="text-align: right;" for="nomberApellido">FIRMA</label>
+          <div style="border-top: 1px solid #000;"></div>
+        </div>
+      </div>
+      <h4 style="text-align: center;">SE DEJA CONSTANCIA QUE EL SOCIO POSEE UNA COPIA DE LA DOCUMENTACIÓN FIRMADA</h4>
+    </section>
+  </div>
+
+  <!-- PAGINA 4-->
+  <div class="container">
+    <section class="info-section">
+      <h3 class="secction-title light-blue">AUTORIZACIÓN PARA RETENCIÓN DE CUOTAS</h3>
+      <div style="width: 100%; text-align: right; margin-bottom: 20px;">La Plata,________de_______________de 20_____
+      </div>
+      <div class="row-item">
+        <label>A la Comisión Directiva de</label>
+        <label>Asociación Mutual Empleados Bonaerenses </label>
+        <label>Presente</label>
+      </div>
+      <p>
+        Quien suscribe, <strong>NUÑEZ MARIA CELESTE</strong>, <strong>DNI 36218095,</strong> como tomador de una
+        prestación en AMEBO (BA 2814), Entidad a la que estoy asociado, autorizo en forma expresa e irrevocable a
+        debitar de mi cuenta Sueldo del Banco de la Provincia de Buenos Aires, <strong>Nro.: 5124565</strong> ,
+        <strong>de la sucursal: 6105</strong>, <strong>cuyo CBU es: 0140442903610551245651</strong>, conforme aplicación
+        Circ. A 2259 del BCRA y modificatorias, los siguientes conceptos:
+      </p>
+      <ol>
+        <li>Cuotas mensuales de: <strong>spesos tres mil ochocientos diez ($ 3810.00 ) </strong> cada una, hasta la
+          total cancelación de mis obligaciones contraídas. Renuncio desde ya a invocar para estos casos, las teorías
+          del riesgo de la imprevisión del caso fortuito y de la fuerza mayor, aún cuando las causales sean ajenas a mi
+          persona. Asimismo, acepto la división del valor de las cuotas con la respectiva aplicación de intereses para
+          el caso de que por cualquier motivo o naturaleza no se pudieran afectar de mis haberes los montos pactados
+        </li>
+        <li>La suma de:<strong>pesos setecientos cincuenta ($ 750)</strong> por los montos de cuota social y/o
+          prestaciones y/o servicios que AMEBO (BA 2814) me brinda.</li>
+        <li>Media cuota mensual de: pesos_______________________________________________________________($_____) con el
+          cobro del sueldo anual complementario (Junio – Diciembre), por las prestaciones y servicios que la entidad 8BA
+          2814) me brinda.</li>
+        <li>Los intereses moratorios, punitorios, comisiones, impuestos y todo otro gasto de cobranza que pudiera
+          corresponder en caso de que, por cualquier motivo, no imputable a AMEBO (BA 2814), se produzca mora en
+          cualquiera de las cuotas aquí establecidas. A tal efecto informo en carácter de declaración jurada que mis
+          remuneraciones son acreditadas en mi Cuenta Sueldo del Banco de la Provincia de Buenos Aires.</li>
+        <li>DEJO EXPRESA CONSTANCIA QUE AUTORIZO A EFECTUAR LOS DESCUENTOS DE MI CUENTA SUELDO EN FORMA DIRECTA POR ESTA
+          MUTUAL O POR EL CONVENIO INTERMUTUAL QUE ME FUE INFORMADO Y QUE AMEBO TIENE CON AMYS, AMEPA, AMECE y COOP. DEL
+          BICIENTENARIO Y/U OTRA ENTIDAD A FUTURO SE SUSCRIBA</li>
+      </ol>
+      <p>He sido expresamente informado que, en caso de ordenar al Banco de la Provincia de Buenos Aires la suspensión
+        temporaria y/o definitiva de los débitos que por ésta autorizo, por cualquier razón que fuere, podré ser
+        denunciado por AMEBO (BA 2814) en sede penal por la presunta comisión del delito de estafa, previsto y penado en
+        el Art. 172 del Código Penal Argentino.</p>
+      <p>Asumo formalmente el compromiso de informar fehacientemente a AMEBO (BA 2814) cualquier cambio en la cuenta de
+        depósito de mis remuneraciones juntamente con el CBU que le corresponda, haciendo extensiva esta misma
+        autorización para efectuar los débitos en la nueva cuenta.</p>
+      <P>Asimismo, dejo expresa constancia de que en caso de imposibilidad transitoria y/o permanente en el débito de
+        los saldo deudores en las cuentas mencionadas y entendiendo que el referido débito y/o descuento, es un servicio
+        y no una obligación por parte de AMEBO (BA 2814), me comprometo a abonar en el domicilio de AMEBO (BA 2814), que
+        es de mi conocimiento, o en el que este disponga, antes del día 15 (quince) de cada mes en que no se hubiese
+        podido efectuar el descuento, como así también me hago cargo del arancel que pudiera establecer el organismo
+        oficial y/o financiera y/o financiero y/o bancario para este descuento y/o débito por haberes, aceptando los
+        cargo e intereses punitorios, en los que pudiera incurrir la morosidad y/o falta de pago.</P>
+      <br>
+      <br>
+      <br>
+      <div style="border: none" class="row">
+        <div style="padding: 20px 10px;" class="row-item">
+          <div style="border-bottom: 1px solid #000;"></div>
+          <label style="text-align: center;" for="nomberApellido">FIRMA</label>
+        </div>
+        <div style="padding: 20px 10px;" class="row-item">
+          <div style="border-bottom: 1px solid #000;"></div>
+          <label style="text-align: center;" for="nomberApellido">ACLARACION</label>
+        </div>
+        <div style="padding: 20px 10px;" class="row-item">
+          <div style="border-bottom: 1px solid #000;"></div>
+          <label style="text-align: center;" for="nomberApellido">DNI:</label>
+        </div>
+      </div>
+      <hr style="width: 100%;">
+      <h4 style="text-align: center;">SE DEJA CONSTANCIA QUE EL SOCIO POSEE UNA COPIA DE LA DOCUMENTACIÓN FIRMADA</h4>
+    </section>
+  </div>
+  <!-- PAGINA 6-->
+  <div class="container">
+    <section class="info-section">
+      <h3 class="secction-title light-blue">AUTORIZACIÓN PARA RETENCIÓN DE CUOTAS</h3>
+
+      <div style="border-bottom: 1px solid #000; margin-bottom: 15px;" class="row">
+        <div class="row-item row-horizontal">
+          <label for="ASOCIADONRO">ASOCIADO NRO:</label>
+          <span name="ASOCIADONRO">12253</span>
+        </div>
+        <div class="row-item row-horizontal">
+          <label for="FECHA">FECHA:</label>
+          <span name="FECHA"></span>
+        </div>
+      </div>
+      <div class="row-item">
+        <label>Señores de: Ministerio de Seguridad</label>
+        <label>At. Dirección de Personal</label>
+      </div>
+      <p>
+        Por la presente, quien suscribe <strong>NOMBRE y APELLIDO</strong>, con el legajo personal Nro.:
+        <strong>200432</strong>, en mi carácter de empleado del <strong>Ministerio de Seguridad</strong>, INSTRUYO Y
+        AUTORIZO irrevocablemente a Uds. A descontar mensualmente de mis haberes y acreditar en el Código de
+        Prestaciones Nro.: <strong>10088</strong> a favor de la Asociación Mutual Empleados Bonaerenses (AMEBO BA 2814)
+        la suma total de $ <strong>56700.00 (PESOS cincuenta y seis mil setecientos)</strong> en <strong>24 (
+          veinticuatro)</strong> cuotas mensuales de $ <strong> 3810.00 (PESOS tres mil ochocientos diez)</strong> cada
+        una, para el pago del préstamo que se me otorgará por intermedio de la "MUTUAL".
+      </p>
+      <P>La Mutual es mandataria del suscripto para el cumplimiento de la obligación de pago mediante la efectiva
+        entrega de los fondos a los proveedores de fondos con convenio vigente a la fecha, conforme "Reglamento de
+        Gestión de Préstamos" aprobado por el INAES para esa Entidad.</P>
+      <p>Asimismo, AUTORIZO E INSTRUYO irrevocablemente a Uds. a descontar de mi liquidación final y acreditar en la
+        cuenta corriente en pesos del Banco de la Provincia de Buenos, número <strong>0514008</strong>, CBU
+        <strong>0140999801200005140089</strong> Aires, sucursal <strong>2000</strong>. En caso de mi eventual egreso del
+        organismo empleador toda suma que adeude por cualquier concepto a aquel momento, ya se trate de capital,
+        intereses, ajustes u otros cargos relacionados a los préstamos y/o prestación referida, hasta su cancelación
+        total.
+      </p>
+      <p>Faculto expresa e irrevocablemente a la Asociación Mutual Empleados Bonaerenses (AMEBO BA2814) a requerir que
+        los débitos mensuales efectuados en mis haberes sean acreditados directamente a su orden</p>
+      <P>Saludo a Uds. Atentamente</P>
+
+    </section>
+    <section class="info-section">
+      <h3 class="secction-title light-blue">DATOS DEL SOLICITANTE</h3>
+
+      <div style="border: none; " class="row">
+        <div class="row-item row-horizontal">
+          <label style="font-weight: 400;" for="ASOCIADONRO">APELLIDO Y NOMBRES:</label>
+          <span style="font-weight: 600;" name="ASOCIADONRO">jp lorek</span>
+        </div>
+      </div>
+      <div style="border: none; " class="row">
+        <div class="row-item row-horizontal">
+          <label style="font-weight: 400;" for="ASOCIADONRO">DNI:</label>
+          <span style="font-weight: 600;" name="ASOCIADONRO">jp lorek</span>
+        </div>
+        <div class="row-item row-horizontal">
+          <label style="font-weight: 400;" for="ASOCIADONRO">CUIL/CUIT/CDI:</label>
+          <span style="font-weight: 600;" name="ASOCIADONRO">jp lorek</span>
+        </div>
+      </div>
+      <div style="border: none; " class="row">
+        <div class="row-item row-horizontal">
+          <label style="font-weight: 400;" for="ASOCIADONRO">DOMICILIO:</label>
+          <span style="font-weight: 600;" name="ASOCIADONRO">jp lorek</span>
+        </div>
+      </div>
+      <div style="border: none; " class="row">
+        <div class="row-item row-horizontal">
+          <label style="font-weight: 400;" for="ASOCIADONRO">PISO:</label>
+          <span style="font-weight: 600;" name="ASOCIADONRO">jp lorek</span>
+        </div>
+      </div>
+      <div style="border: none;" class="row">
+        <div class="row-item row-horizontal">
+          <label style="font-weight: 400;" for="ASOCIADONRO">DEPTO:</label>
+          <span style="font-weight: 600;" name="ASOCIADONRO">jp lorek</span>
+        </div>
+      </div>
+      <div style="border: none; " class="row">
+        <div class="row-item row-horizontal">
+          <label style="font-weight: 400;" for="ASOCIADONRO">LEGAJO:</label>
+          <span style="font-weight: 600;" name="ASOCIADONRO">jp lorek</span>
+        </div>
+        <div class="row-item row-horizontal">
+          <label style="font-weight: 400;" for="ASOCIADONRO">CL::</label>
+          <span style="font-weight: 600;" name="ASOCIADONRO">jp lorek</span>
+        </div>
+      </div>
+      <div style="border: none; " class="row">
+        <div class="row-item row-horizontal">
+          <label style="font-weight: 400;" for="ASOCIADONRO">CARGO EN PLANTA PERMANENTE:</label>
+          <span style="font-weight: 600;" name="ASOCIADONRO">jp lorek</span>
+        </div>
+        <div class="row-item row-horizontal">
+          <label style="font-weight: 400;" for="ASOCIADONRO">ANTIGÜEDAD:</label>
+          <span style="font-weight: 600;" name="ASOCIADONRO">jp lorek</span>
+        </div>
+      </div>
+      <div style="border: none; " class="row">
+        <div class="row-item row-horizontal">
+          <label style="font-weight: 400;" for="ASOCIADONRO">CARGO EN PLANTA PERMANENTE:</label>
+          <span style="font-weight: 600;" name="ASOCIADONRO">jp lorek</span>
+        </div>
+        <div class="row-item row-horizontal">
+          <label style="font-weight: 400;" for="ASOCIADONRO">ANTIGÜEDAD:</label>
+          <span style="font-weight: 600;" name="ASOCIADONRO">jp lorek</span>
+        </div>
+      </div>
+      <br>
+      <br>
+      <br>
+      <div style="border: none" class="row">
+        <div style="padding: 20px 10px;" class="row-item">
+          <div style="border-bottom: 1px solid #000;"></div>
+          <label style="text-align: center;" for="nomberApellido">FIRMA</label>
+        </div>
+        <div style="padding: 20px 10px;" class="row-item">
+          <div style="border-bottom: 1px solid #000;"></div>
+          <label style="text-align: center;" for="nomberApellido">ACLARACION</label>
+        </div>
+        <div style="padding: 20px 10px;" class="row-item">
+          <div style="border-bottom: 1px solid #000;"></div>
+          <label style="text-align: center;" for="nomberApellido">DNI:</label>
+        </div>
+      </div>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <div style="display: flex; justify-content: flex-end;">
+        <div style="display: flex; flex-direction: column; width: 50%;">
+          <hr style="width: 100%;">
+          <h4 style="text-align: center;">FIRMA REPRESENTANTE AMEBO</h4>
+        </div>
+      </div>
+
+
+    </section>
+    <section class="info-section">
+      <h3 style="text-align: center; margin: 0;" class="secction-title light-blue">AUTORIZACIÓN PARA DESCUENTO DE
+        HABERES DEL SOLICITANTE</h3>
+      <h4 style="text-align: center; margin: 0;">SE DEJA CONSTANCIA QUE EL SOCIO POSEE UNA COPIA DE LA DOCUMENTACIÓN
+        FIRMADA</h4>
+    </section>
+  </div>
+
+  <!-- PAGINA 6-->
+  <div class="info-section">
+    <section class="info-section">
+      <h3 class="secction-title light-blue">RESOLUCIÓN N.º 1481 - INAES - ANEXO 1</h3>
+      <div class="row">
+        <div class="row-item row-horizontal">
+          <label style="font-weight: 400;" for="ASOCIADONRO">Anexo con información detallada del préstamo Nro.: </label>
+          <span style="font-weight: 600;" name="ASOCIADONRO">21498</span>
+        </div>
+        <div class="row-item row-horizontal">
+          <label style="font-weight: 400;" for="ASOCIADONRO">Fecha:</label>
+          <span style="font-weight: 600;" name="ASOCIADONRO"></span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="row-item row-horizontal">
+          <label style="font-weight: 400;" for="ASOCIADONRO">Deudor: </label>
+          <span style="font-weight: 600;" name="ASOCIADONRO"></span>
+        </div>
+        <div class="row-item row-horizontal">
+          <label style="font-weight: 400;" for="ASOCIADONRO">Codeudor:</label>
+          <span style="font-weight: 600;" name="ASOCIADONRO"></span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="row-item row-horizontal">
+          <label style="font-weight: 400;" for="ASOCIADONRO">Persona jurídica/física otorgante del préstamo: </label>
+          <span style="font-weight: 600;" name="ASOCIADONRO"></span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="row-item row-horizontal">
+          <label style="font-weight: 400;" for="ASOCIADONRO">Importe solicitado:</label>
+          <span style="font-weight: 600;" name="ASOCIADONRO">$ 56.700,00</span>
+        </div>
+        <div class="row-item row-horizontal">
+          <label style="font-weight: 400;" for="ASOCIADONRO">Monto percibido: </label>
+          <span style="font-weight: 600;" name="ASOCIADONRO">$ 56.700,00</span>
+        </div>
+        <div class="row-item row-horizontal">
+          <label style="font-weight: 400;" for="ASOCIADONRO">Valor cuota social</label>
+          <span style="font-weight: 600;" name="ASOCIADONRO">$ 750,00</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="row-item row-horizontal">
+          <label style="font-weight: 400;" for="ASOCIADONRO">Cantidad de cuotas: </label>
+          <span style="font-weight: 600;" name="ASOCIADONRO">24</span>
+        </div>
+        <div class="row-item row-horizontal">
+          <label style="font-weight: 400;" for="ASOCIADONRO">Periocidad:</label>
+          <span style="font-weight: 600;" name="ASOCIADONRO"></span>
+        </div>
+        <div class="row-item row-horizontal">
+          <label style="font-weight: 400;" for="ASOCIADONRO">Monto cuota:</label>
+          <span style="font-weight: 600;" name="ASOCIADONRO">$ 3.810,00</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="row-item row-horizontal">
+          <label style="font-weight: 400;" for="ASOCIADONRO">Gastos administrativos: </label>
+          <span style="font-weight: 600;" name="ASOCIADONRO">$</span>
+        </div>
+        <div class="row-item row-horizontal">
+          <label style="font-weight: 400;" for="ASOCIADONRO">Costo del seguro: </label>
+          <span style="font-weight: 600;" name="ASOCIADONRO">$</span>
+        </div>
+        <div class="row-item row-horizontal">
+          <label style="font-weight: 400;" for="ASOCIADONRO">Monto a reintegrar: </label>
+          <span style="font-weight: 600;" name="ASOCIADONRO">$</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="row-item row-horizontal">
+          <label style="font-weight: 400;" for="ASOCIADONRO">Moneda del préstamo: </label>
+          <span style="font-weight: 600;" name="ASOCIADONRO">PESOS</span>
+        </div>
+        <div class="row-item row-horizontal">
+          <label style="font-weight: 400;" for="ASOCIADONRO">Modalidad de cancelación:</label>
+          <span style="font-weight: 600;" name="ASOCIADONRO"></span>
+        </div>
+        <div class="row-item row-horizontal">
+          <label style="font-weight: 400;" for="ASOCIADONRO">Tasa interés:</label>
+          <span style="font-weight: 600;" name="ASOCIADONRO">FIJA/VARIABLE</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="row-item row-horizontal">
+          <label style="font-weight: 400;" for="ASOCIADONRO">Tasa efectiva mensual:</label>
+          <span style="font-weight: 600;" name="ASOCIADONRO">PESOS</span>
+        </div>
+        <div class="row-item row-horizontal">
+          <label style="font-weight: 400;" for="ASOCIADONRO">Tasa nominal anual:</label>
+          <span style="font-weight: 600;" name="ASOCIADONRO"></span>
+        </div>
+        <div class="row-item row-horizontal">
+          <label style="font-weight: 400;" for="ASOCIADONRO">Tasa efectiva anual:</label>
+          <span style="font-weight: 600;" name="ASOCIADONRO">FIJA/VARIABLE</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="row-item row-horizontal">
+          <label style="font-weight: 400;" for="ASOCIADONRO">Costo financiero total:</label>
+          <span style="font-weight: 600;" name="ASOCIADONRO"></span>
+        </div>
+        <div class="row-item row-horizontal">
+          <label style="font-weight: 400;" for="ASOCIADONRO">Sistema de amortización:</label>
+          <span style="font-weight: 600;" name="ASOCIADONRO"></span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="row-item row-horizontal">
+          <label style="font-weight: 400;" for="ASOCIADONRO">Forma de acreditación:</label>
+          <span style="font-weight: 600;" name="ASOCIADONRO"></span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="row-item row-horizontal">
+          <label style="font-weight: 400;" for="ASOCIADONRO">Nro. de cheque:</label>
+          <span style="font-weight: 600;" name="ASOCIADONRO"></span>
+        </div>
+        <div class="row-item row-horizontal">
+          <label style="font-weight: 400;" for="ASOCIADONRO">Nro. de transferencia bancaria:</label>
+          <span style="font-weight: 600;" name="ASOCIADONRO"></span>
+        </div>
+      </div>
+      <p>
+        Declaro bajo juramente que se me ha notificado de mi derecho a exigir constancia del saldo de mi deuda, la que
+        deberá contener el detalle de los pagos efectuados. Asimismo, declaro bajo juramento que el destino del presente
+        préstamo es para destinarlo a:
+        __________________________________________________________________________________
+      </p>
+      <p>
+        Se notifica al asociado <strong>NUÑEZ MARIA CELESTE</strong> que el pago de la cuota societaria posibilita el
+        acceso a los servicios que conforme el Estatuto y Reglamentos brinda la entidad, a saber: TURISMO - FARMACIA -
+        SUBSIDIO NACIMIENTO/CASAMIENTO - AYUDAS ECONÓMICAS - CONVENIOS DE RECIPROCIDAD CON ENTIDADES DE LA ECONOMÍA
+        SOLIDARIA - ASESORAMIENTO Y GESTORÍA JURÍDICA/CONTABLE - ASISTENCIA AL VIAJERO Y AL HOGAR.
+      </p>
+      <p>
+        En caso de no tener interés de permanecer como asociado a la entidad, deberá notificar por medio fehaciente su
+        renuncia al domicilio legal de la entidad sito calle 2 N.º 825 de la ciudad de La Plata, provincia de Buenos
+        Aires, CP 1900, la cual se someterá a consideración del órgano de administración y cuya decisión se comunicará
+        por el mismo medio.
+      </p>
+    </section>
+    <section class="info-section">
+      <div style="border: none" class="row">
+        <div style="padding: 20px 10px;" class="row-item">
+          <div style="border-bottom: 1px solid #000;"></div>
+          <label style="text-align: center;" for="nomberApellido">FIRMA</label>
+        </div>
+        <div style="padding: 20px 10px;" class="row-item">
+          <div style="border-bottom: 1px solid #000;"></div>
+          <label style="text-align: center;" for="nomberApellido">ACLARACION</label>
+        </div>
+        <div style="padding: 20px 10px;" class="row-item">
+          <div style="border-bottom: 1px solid #000;"></div>
+          <label style="text-align: center;" for="nomberApellido">DNI:</label>
+        </div>
+      </div>
+      <br>
+      <br>
+      <br>
+      <br>
+      <h4 style="text-align: center;">SE DEJA CONSTANCIA QUE EL SOCIO POSEE UNA COPIA DE LA DOCUMENTACIÓN FIRMADA</h4>
+    </section>
+  </div>
+
+  <!-- PAGINA 8-->
+  <div class="info-section">
+    <section class="info-section">
+      <h3 class="secction-title light-blue">LEY N.º 25246</h3>
+      <p>
+        En carácter de DECLARACIÓN JURADA manifiesto que las informaciones consignadas en el presente trámite son
+        exactas y verdaderas y que tengo conocimiento del contenido de la Ley número 25246, Resolución 134/2018 de UIF y
+        que SI/NO (tachar lo que no corresponde) me encuentro incluido y/o alcanzado dentro de la Nómina de Funciones de
+        Personas Políticamente Expuestas.
+        En caso afirmativo indicar: cargo/función/jerarquía o relación con la persona políticamente expuesta. Además,
+        asumo el compromiso de informar cualquier modificación que se produzca a este respecto, dentro de los treinta
+        (30) días de ocurrida, mediante la presentación de una nueva declaración jurada.
+      </p>
+    </section>
+    <br>
+    <br>
+    <br>
+    <br>
+    <section class="info-section">
+      <div style="border: none" class="row">
+        <div style="padding: 20px 10px;" class="row-item">
+          <div style="border-bottom: 1px solid #000;"></div>
+          <label style="text-align: center;" for="nomberApellido">FIRMA</label>
+        </div>
+        <div style="padding: 20px 10px;" class="row-item">
+          <div style="border-bottom: 1px solid #000;"></div>
+          <label style="text-align: center;" for="nomberApellido">ACLARACION</label>
+        </div>
+        <div style="padding: 20px 10px;" class="row-item">
+          <div style="border-bottom: 1px solid #000;"></div>
+          <label style="text-align: center;" for="nomberApellido">DNI:</label>
+        </div>
+      </div>
+    </section>
+    <section class="info-section">
+      <div class="row-item">
+        <label>Declaro haber leído la RES.134/2012 DE LA U.I.F.</label>
+      </div>
+    </section>
+    <br>
+    <br>
+    <br>
+    <br>
+    <section class="info-section">
+      <div style="border: none" class="row">
+        <div style="padding: 20px 10px;" class="row-item">
+          <div style="border-bottom: 1px solid #000;"></div>
+          <label style="text-align: center;" for="nomberApellido">FIRMA</label>
+        </div>
+        <div style="padding: 20px 10px;" class="row-item">
+          <div style="border-bottom: 1px solid #000;"></div>
+          <label style="text-align: center;" for="nomberApellido">ACLARACION</label>
+        </div>
+        <div style="padding: 20px 10px;" class="row-item">
+          <div style="border-bottom: 1px solid #000;"></div>
+          <label style="text-align: center;" for="nomberApellido">DNI:</label>
+        </div>
+      </div>
+      <h4 style="text-align: center;">SE DEJA CONSTANCIA QUE EL SOCIO POSEE UNA COPIA DE LA DOCUMENTACIÓN FIRMADA</h4>
+    </section>
+  </div>
+  <!-- PAGINA 9-->
+  <div class="info-section">
+    <header class="header">
+      <img class="img-logo" src="images/ameboLogo.jpg" alt="amebo logo" />
+
+    </header>
+    <section class="info-section">
+      <div style="width: 100%; text-align: right; margin-bottom: 20px;">La Plata,________de_______________de 20_____</div>
+      <p>Por medio de la presente, quien suscribe, NUÑEZ MARIA CELESTE, DNI 36218095, autorizo a debitar del crédito
+        de pesos cincuenta y seis mil setecientos ($ 56700.00 ) en un plan de veinticuatro (24) cuotas de pesos tres
+        mil ochocientos diez ($ 3810.00 ) c/u solicitado por mi parte a AMEBO para ser descontado de mis haberes a
+        través del "Régimen Único de Códigos de Descuentos" de acuerdo con el Decreto 243/18 y Resolución 273/18 del
+        Ministerio de Economía, que otorgan a la entidad la autorización para funcionar, la suma de
+        pesos_____________________________________________($__________________________________________), con el fin de
+        cancelar el crédito vigente en
+        _______________________________________________________________________________________________________descontado
+        por CBU mediante el sistema de débito directo.
+      </p>
+    </section>
+    <section class="info-section">
+      <div style="border: none" class="row">
+        <div style="padding: 20px 10px;" class="row-item">
+          <div style="border-bottom: 1px solid #000;"></div>
+          <label style="text-align: center;" for="nomberApellido">FIRMA</label>
+        </div>
+        <div style="padding: 20px 10px;" class="row-item">
+          <div style="border-bottom: 1px solid #000;"></div>
+          <label style="text-align: center;" for="nomberApellido">ACLARACION</label>
+        </div>
+        <div style="padding: 20px 10px;" class="row-item">
+          <div style="border-bottom: 1px solid #000;"></div>
+          <label style="text-align: center;" for="nomberApellido">DNI:</label>
+        </div>
+      </div>
+
+    </section>
+  </div>
+  <div class="info-section">
+    <h2 style="color: #BCBCBC; text-align: center;">ANEXO I</h2>
+    <section class="info-section">
+      <div style="width: 100%; text-align: right; margin-bottom: 20px;">La Plata,________de_______________de 20_____</div>
+      <h4>Señor Director General de Administración:</h4>
+      <p>
+        Quien suscribe se dirige a usted en su carácter de Presidente de AMEBO Asociación Mutual de Empleados Bonaerenses a efectos de informar los datos del agente de la administración pública provincial que solicita se efectúe un descuento en sus haberes por el concepto de
+        </p>
+    </section>
+  </div>
+
+</body>
+
+</html>
