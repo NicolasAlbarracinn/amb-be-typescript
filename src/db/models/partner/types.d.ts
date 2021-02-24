@@ -1,6 +1,8 @@
 import { Types, Document } from 'mongoose';
 import { IUserDoc } from '../user/types';
 
+//add birthDate
+
 interface IPesonalData {
   documentType: string;
   documentNumber: string;
