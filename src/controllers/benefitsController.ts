@@ -14,6 +14,7 @@ const createBenefitFunction: RequestHandler = async (req, res) => {
   const benefit = new Benefits({
     ...req.body,
     benefitId: newBenefitsId,
+    partner: req.body.partnerObjectId,
     createdBy: req.user?._id,
   });
 
@@ -86,7 +87,7 @@ const getBenefitDetail: RequestParamHandler = async (req, res, next) => {
     return next(new AppError('numero de prestacion no proporcionado', 404));
   }
 
-  const data = await Benefits.findOne({ benefitId: parseInt(req.params.benefitID) });
+  const data = await Benefits.findOne({ benefitId: parseInt(req.params.benefitID) }).populate({ path: 'partner' });
 
   if (!data) {
     return next(new AppError('No se a encotrado prestacion para el id proporcionado', 400));

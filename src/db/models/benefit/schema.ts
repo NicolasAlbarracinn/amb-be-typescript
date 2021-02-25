@@ -27,7 +27,9 @@ export const BenefitSchemaFields: Record<keyof IBenefit, any> = {
     required: true,
   },
   plan: {
-    type: String,
+    type: Schema.Types.ObjectId,
+    ref: 'Plan',
+    required: true,
   },
   signatureAmount: {
     type: String,
@@ -59,6 +61,14 @@ export const BenefitSchemaFields: Record<keyof IBenefit, any> = {
     type: String,
     required: true,
   },
+  paymentMethod: {
+    type: String,
+    required: true,
+  },
+  paymentMethodRecovery: {
+    type: String,
+    required: true,
+  },
   createdBy: {
     type: Schema.Types.ObjectId,
     ref: 'User',
@@ -67,103 +77,10 @@ export const BenefitSchemaFields: Record<keyof IBenefit, any> = {
     type: Schema.Types.ObjectId,
     ref: 'User',
   },
-  partnerDetail: {
-    partnerId: {
-      type: String,
-      required: true,
-    },
-    name: {
-      type: String,
-      required: true,
-    },
-    lastName: {
-      type: String,
-      required: true,
-    },
-    admissionDate: {
-      type: String,
-      required: true,
-    },
-    documentType: {
-      type: String,
-      required: true,
-    },
-    documentNumber: {
-      type: String,
-      required: true,
-    },
-    gender: {
-      type: String,
-      required: true,
-    },
-    cuil: {
-      type: String,
-      required: true,
-    },
-    civilState: {
-      type: String,
-      required: true,
-    },
-    status: {
-      type: String,
-      required: true,
-    },
-    email: {
-      type: String,
-      required: true,
-    },
-  },
-  distributionDetail: {
-    repartition: {
-      type: String,
-      required: true,
-    },
-    distributionCode: {
-      type: String,
-      required: true,
-    },
-    dependence: {
-      type: String,
-      required: true,
-    },
-    fileNumber: {
-      type: String,
-      required: true,
-    },
-    fileItem: {
-      type: String,
-      required: true,
-    },
-    paymentType: {
-      type: String,
-      required: true,
-    },
-    recoveryPaymentType: {
-      type: String,
-      required: true,
-    },
-    bankName: {
-      type: String,
-      required: true,
-    },
-    cbu: {
-      type: String,
-      required: true,
-    },
-    bankBranchName: {
-      type: String,
-      required: true,
-    },
-    bankAccountNumber: {
-      type: String,
-      required: true,
-    },
-    programCode: {
-      type: String,
-    },
-    sequenceNumber: {
-      type: String,
-    },
+  partner: {
+    type: Schema.Types.ObjectId,
+    ref: 'Partner',
+    required: true,
   },
   files: {
     type: Object,

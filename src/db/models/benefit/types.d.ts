@@ -38,7 +38,7 @@ export interface IBenefit {
   certificateNumber: string;
   applicationDate: string;
   portfolio: string;
-  plan: string;
+  plan: Types.ObjectId | IUserDoc;
   signatureAmount: string;
   duesQuantity: string;
   duesAmount: string;
@@ -48,9 +48,10 @@ export interface IBenefit {
   grantedPeriod: string;
   fileGranted: string;
   statusDate: string;
-  partnerDetail: IPartnerInfo;
-  distributionDetail: IDistributionInfo;
+  paymentMethod: string;
+  paymentMethodRecovery: string;
   files?: Record<string, unknown>;
+  partner: Types.ObjectId | IUserDoc;
   createdBy: Types.ObjectId | IUserDoc;
   modifiedBy: Types.ObjectId | IUserDoc;
 }

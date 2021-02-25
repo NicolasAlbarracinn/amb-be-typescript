@@ -3,6 +3,6 @@ import { generatePDFfile } from '../controllers/pdfTemplateController';
 
 const utilitiesRoutes = Router();
 
-utilitiesRoutes.get('/', generatePDFfile);
+utilitiesRoutes.get('/:benefitId', generatePDFfile);
 
 export default utilitiesRoutes;
