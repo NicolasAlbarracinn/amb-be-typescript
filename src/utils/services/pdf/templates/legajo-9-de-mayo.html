@@ -308,7 +308,7 @@
           </div>
           <div class="row-item">
             <label for="CUIT">CUIT/CUIL:</label>
-            <span name="CUIT">{{cuil}</span>
+            <span name="CUIT">{{cuil}}</span>
           </div>
           <div class="row-item">
             <label for="CUIT">SEXO:</label>
@@ -392,7 +392,7 @@
           </div>
           <div class="row-item">
             <label for="codigoPostal">Nro. BENEFICIO/LEGAJO:</label>
-            <span name="codigoPostal">{{}}</span>
+            <span name="codigoPostal">{{partnerId}}</span>
           </div>
           <div class="row-item">
             <label for="PROVINCIA">PRESTACION Nro.:</label>
@@ -700,27 +700,27 @@
         </div>
         <div class="row-item row-horizontal">
           <label style="font-weight: 400;" for="ASOCIADONRO">CL::</label>
-          <span style="font-weight: 600;" name="ASOCIADONRO"></span>
+          <span style="font-weight: 600;" name="ASOCIADONRO">-</span>
         </div>
       </div>
       <div style="border: none; padding: 0;" class="row">
         <div class="row-item row-horizontal">
           <label style="font-weight: 400;" for="ASOCIADONRO">CARGO EN PLANTA PERMANENTE:</label>
-          <span style="font-weight: 600;" name="ASOCIADONRO"></span>
+          <span style="font-weight: 600;" name="ASOCIADONRO">-</span>
         </div>
         <div class="row-item row-horizontal">
           <label style="font-weight: 400;" for="ASOCIADONRO">ANTIGÜEDAD:</label>
-          <span style="font-weight: 600;" name="ASOCIADONRO"></span>
+          <span style="font-weight: 600;" name="ASOCIADONRO">-</span>
         </div>
       </div>
       <div style="border: none; padding: 0; " class="row">
         <div class="row-item row-horizontal">
           <label style="font-weight: 400;" for="ASOCIADONRO">ÚLTIMO SUELDO BRUTO:</label>
-          <span style="font-weight: 600;" name="ASOCIADONRO"></span>
+          <span style="font-weight: 600;" name="ASOCIADONRO">-</span>
         </div>
         <div class="row-item row-horizontal">
           <label style="font-weight: 400;" for="ASOCIADONRO">SECTOR DE TRABAJO:</label>
-          <span style="font-weight: 600;" name="ASOCIADONRO"></span>
+          <span style="font-weight: 600;" name="ASOCIADONRO">-</span>
         </div>
       </div>
       <p style="font-size: 14px;">SE ADJUNTA AL PRESENTE COMO PARTE INTEGRANTE DEL MISMO, CERTIFICACIÓN EXPEDIDA POR EL
@@ -847,14 +847,14 @@
           <span style="font-weight: 600;" name="ASOCIADONRO"></span>
         </div>
         <div class="row-item row-horizontal">
-          <label style="font-weight: 400;" for="ASOCIADONRO">Tasa interés:</label>
+          <label style="font-weight: 400;" for="ASOCIADONRO">Tasa interés:</label>  
           <span style="font-weight: 600;" name="ASOCIADONRO">FIJA/VARIABLE</span>
         </div>
       </div>
       <div class="row">
         <div class="row-item row-horizontal">
           <label style="font-weight: 400;" for="ASOCIADONRO">Tasa efectiva mensual:</label>
-          <span style="font-weight: 600;" name="ASOCIADONRO">monthlyCashRate</span>
+          <span style="font-weight: 600;" name="ASOCIADONRO">{{monthlyCashRate}}</span>
         </div>
         <div class="row-item row-horizontal">
           <label style="font-weight: 400;" for="ASOCIADONRO">Tasa nominal anual:</label>

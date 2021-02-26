@@ -50,7 +50,7 @@ interface IWorkInfo {
 
 export interface IPartner {
   partnerId: number;
-  status: boolean;
+  status: string;
   personalData: IPesonalData;
   adress: IAddress;
   workInfo: IWorkInfo;

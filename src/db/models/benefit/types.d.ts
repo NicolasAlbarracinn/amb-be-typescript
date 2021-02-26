@@ -1,5 +1,7 @@
 import { Types, Document } from 'mongoose';
 import { IUserDoc } from '../user/types';
+import { IPartnerDoc } from '../partner/types';
+import { IPlanDoc } from '../plan/types';
 
 export interface IPartnerInfo {
   partnerId: string;
@@ -38,7 +40,7 @@ export interface IBenefit {
   certificateNumber: string;
   applicationDate: string;
   portfolio: string;
-  plan: Types.ObjectId | IUserDoc;
+  plan: Types.ObjectId | IPlanDoc;
   signatureAmount: string;
   duesQuantity: string;
   duesAmount: string;
@@ -51,7 +53,7 @@ export interface IBenefit {
   paymentMethod: string;
   paymentMethodRecovery: string;
   files?: Record<string, unknown>;
-  partner: Types.ObjectId | IUserDoc;
+  partner: Types.ObjectId | IPartnerDoc;
   createdBy: Types.ObjectId | IUserDoc;
   modifiedBy: Types.ObjectId | IUserDoc;
 }
