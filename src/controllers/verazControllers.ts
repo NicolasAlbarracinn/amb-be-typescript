@@ -4,6 +4,8 @@ export const veraz: RequestHandler = (req, res, next) => {
   const renaperData = {
     personalData: {
       birthPlace: 'argentina',
+      birthDate: '10/05/1986',
+      age: 35,
       civilState: 's',
       country: 'argentina',
       cuil: 20382781727,
@@ -14,17 +16,14 @@ export const veraz: RequestHandler = (req, res, next) => {
       lastName: 'Albarracin',
       name: 'Nicolas',
       netSalary: 11000,
-      otherPerferences: 'aaa',
       partnerId: '',
-      paymentType: 'dr',
       personalPhone: '1562685678',
       phone: '1562685678',
       procedureNumber: 272339423,
-      recoveryPaymentType: 'dbic',
       salary: 160000,
       socialQuota: '6000',
     },
-    adress: {
+    address: {
       aptNumber: 'C',
       department: 'Villa Urquiza',
       floor: '5to',
@@ -33,7 +32,7 @@ export const veraz: RequestHandler = (req, res, next) => {
       observations: '1562685678',
       postalCode: '1431',
       province: 'Buenos Aires',
-      streetAdress: 'Miller 2330',
+      streetAddress: 'Miller 2330',
     },
     workInfo: {},
   };

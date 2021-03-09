@@ -26,7 +26,7 @@ interface IPesonalData {
 }
 
 interface IAddress {
-  streetAdress: string;
+  streetAddress: string;
   floor: string;
   aptNumber: string;
   department: string;
@@ -52,7 +52,7 @@ export interface IPartner {
   partnerId: number;
   status: string;
   personalData: IPesonalData;
-  adress: IAddress;
+  address: IAddress;
   workInfo: IWorkInfo;
   createdBy: Types.ObjectId | IUserDoc;
   modifiedBy: Types.ObjectId | IUserDoc;

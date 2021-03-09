@@ -14,6 +14,9 @@ const createLenderFunction: RequestHandler = async (req, res, next) => {
   if (!req.body) {
     return next(new AppError('datos incompletos', 404));
   }
+
+  console.log(req.body);
+
   const lender = new Lenders({
     ...req.body,
   });

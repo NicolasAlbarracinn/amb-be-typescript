@@ -69,6 +69,10 @@ export const BenefitSchemaFields: Record<keyof IBenefit, any> = {
     type: String,
     required: true,
   },
+  commercializer: {
+    type: String,
+    required: true,
+  },
   createdBy: {
     type: Schema.Types.ObjectId,
     ref: 'User',

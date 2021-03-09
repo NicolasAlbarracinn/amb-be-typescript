@@ -88,8 +88,8 @@ export const PartnerSchemaFields: Record<keyof IPartner, any> = {
       required: false,
     },
   },
-  adress: {
-    streetAdress: {
+  address: {
+    streetAddress: {
       type: String,
       required: true,
     },

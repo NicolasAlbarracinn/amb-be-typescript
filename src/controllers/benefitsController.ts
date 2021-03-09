@@ -87,7 +87,9 @@ const getBenefitDetail: RequestParamHandler = async (req, res, next) => {
     return next(new AppError('numero de prestacion no proporcionado', 404));
   }
 
-  const data = await Benefits.findOne({ benefitId: parseInt(req.params.benefitID) }).populate({ path: 'partner' });
+  const data = await Benefits.findOne({ benefitId: parseInt(req.params.benefitID) })
+    .populate({ path: 'partner' })
+    .populate({ path: 'plan' });
 
   if (!data) {
     return next(new AppError('No se a encotrado prestacion para el id proporcionado', 400));

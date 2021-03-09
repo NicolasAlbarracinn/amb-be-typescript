@@ -52,6 +52,7 @@ export interface IBenefit {
   statusDate: string;
   paymentMethod: string;
   paymentMethodRecovery: string;
+  commercializer: string;
   files?: Record<string, unknown>;
   partner: Types.ObjectId | IPartnerDoc;
   createdBy: Types.ObjectId | IUserDoc;

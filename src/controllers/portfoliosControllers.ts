@@ -29,11 +29,13 @@ const createPorfolioFunction: RequestHandler = async (req, res, next) => {
   if (!req.body) {
     return next(new AppError('datos incompletos', 404));
   }
+
   const parsedPlan = parseRespose(req.body.plans, req.body.portfolioTypes, req.body.lender);
 
   const planList = await Plan.insertMany(parsedPlan as Array<IPlan>);
 
   const plans = planList.map(i => i._id);
+
   const portfolio = new Portfolios({
     ...req.body,
     plans,

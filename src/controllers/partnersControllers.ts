@@ -51,7 +51,8 @@ const partnersFunction: RequestHandler = async (req, res, next) => {
   });
 };
 
-const savePartnerFunction: RequestHandler = async (req, res, next) => {
+const savePartnerFunction: RequestHandler = async (req, res) => {
+  console.log(req.body);
   const newPartnerId = await getValueForNextSequence(Partners, 'partnerId');
   const partner = new Partners({
     ...req.body,
@@ -66,7 +67,7 @@ const savePartnerFunction: RequestHandler = async (req, res, next) => {
   });
 };
 
-const updatePartnerFunction: RequestHandler = async (req, res, next) => {
+const updatePartnerFunction: RequestHandler = async (req, res) => {
   const updatedPartner = await Partners.findOneAndUpdate(
     { partnerId: req.body.partnerId },
     {
@@ -82,7 +83,7 @@ const updatePartnerFunction: RequestHandler = async (req, res, next) => {
   });
 };
 
-const updatePartnerStatusFunction: RequestHandler = async (req, res, next) => {
+const updatePartnerStatusFunction: RequestHandler = async (req, res) => {
   const updatedPartner = await Partners.findOneAndUpdate(
     { partnerId: req.body.partnerId },
     {
