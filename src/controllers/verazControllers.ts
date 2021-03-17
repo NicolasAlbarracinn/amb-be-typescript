@@ -1,4 +1,3 @@
-/* eslint-disable prefer-const */
 import { RequestHandler } from 'express';
 
 import axios from 'axios';

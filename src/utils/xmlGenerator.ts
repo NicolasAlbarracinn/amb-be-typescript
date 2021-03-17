@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable no-unused-vars */
 import builder from 'xmlbuilder';
 import convert from 'xml-js';
 
@@ -34,6 +36,28 @@ export const xmlBuilder: XmlBuilderFunc = ({ nombre, sexo, documento }) => {
 };
 
 export const converXmlToObject = (xml: string): any => {
-  const result = convert.xml2js(xml, { ignoreComment: true, alwaysChildren: true });
-  return result;
+  const result = convert.xml2js(xml, {
+    ignoreComment: true,
+    alwaysChildren: true,
+    sanitize: true,
+    trim: true,
+    alwaysArray: false,
+  });
+
+  return getHTMLData(result.elements);
+};
+
+export const getHTMLData = (stack: Array<{ [keys: string]: any }>): string | undefined => {
+  const CData = stack.find(e => e.type === 'cdata');
+  if (CData) return CData.cdata;
+
+  while (stack.length > 0) {
+    const obj = stack.pop();
+
+    if (obj!['elements'].length < 1) continue;
+
+    return getHTMLData(obj!['elements']);
+  }
+
+  return;
 };
