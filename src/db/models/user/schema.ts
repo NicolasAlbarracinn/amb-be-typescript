@@ -18,10 +18,11 @@ export const UserSchemaFields: Record<keyof IUser, any> = {
     required: true,
     minlength: 7,
     trim: true,
-    validate: {
-      validator: (value: string) => value.toLowerCase().includes('password'),
-      message: 'Password cannot contain "password"',
-    },
+    //TODO: add proper validation
+    // validate: {
+    //   validator: (value: string) => value.toLowerCase().includes('password'),
+    //   message: 'Password cannot contain "password"',
+    // },
   },
   firstName: {
     type: String,
@@ -35,10 +36,10 @@ export const UserSchemaFields: Record<keyof IUser, any> = {
   },
   completed: {
     type: Boolean,
-    required: true,
     default: false,
   },
   role: {
+    require: true,
     type: String,
     enum: ['financista', 'vendedores', 'asociado', 'potencialAsociado', 'empleado'],
     default: 'potencialAsociado',

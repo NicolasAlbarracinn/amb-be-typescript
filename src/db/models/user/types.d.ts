@@ -1,14 +1,16 @@
 /* eslint-disable no-unused-vars */
 import { Document, Model } from 'mongoose';
 
+type Roles = 'financista' | 'vendedores' | 'asociado' | 'potencialAsociado' | 'empleado';
+
 export interface IUser {
   email: string;
   password: string;
-  firstName: string;
-  lastName: string;
-  image: string;
-  completed: string;
-  role: 'financista' | 'vendedores' | 'asociado' | 'potencialAsociado' | 'empleado';
+  firstName?: string;
+  lastName?: string;
+  image?: string;
+  completed?: string;
+  role: Roles;
 }
 
 export interface IUserDoc extends IUser, Document {

@@ -1,4 +1,4 @@
-import { Schema, model, HookNextFunction } from 'mongoose';
+import { Schema, model, HookNextFunction, ToObjectOptions } from 'mongoose';
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcryptjs';
 
@@ -44,6 +44,10 @@ UserSchema.pre('save', async function (this: IUserDoc, next: HookNextFunction) {
 
   next();
 });
+
+UserSchema.set('toJSON', {
+  transform: (doc, { __v, password, ...rest }, options) => rest,
+} as ToObjectOptions);
 
 const User = model<IUserDoc, IUserModel>('User', UserSchema);
 

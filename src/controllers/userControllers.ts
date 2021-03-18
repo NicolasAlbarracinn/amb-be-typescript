@@ -16,17 +16,9 @@ const loginFunction: RequestHandler = async (req, res, next) => {
 
   logIn(req, user._id || '');
 
-  const { firstName, lastName, completed, image, role } = user;
   res.status(201).json({
     status: 'success',
-    user: {
-      email,
-      firstName,
-      lastName,
-      completed,
-      image,
-      role,
-    },
+    user,
   });
 };
 
@@ -77,7 +69,31 @@ const logoutFunction: RequestHandler = async (req, res) => {
   res.status(200).json({ status: 'success' });
 };
 
+const registerUser: RequestHandler = async (req, res, next) => {
+  const { email } = req.body;
+
+  const found = await User.exists({ email });
+
+  if (found) {
+    return next(new AppError('Email existente', 401));
+  }
+
+  const user = await User.create({
+    email: req.body.email,
+    password: req.body.password,
+    role: req.body.role,
+  });
+
+  logIn(req, user.id);
+
+  res.status(201).json({
+    status: 'success',
+    user,
+  });
+};
+
 export const login = catchAsync(loginFunction);
 export const logout = catchAsync(logoutFunction);
+export const registration = catchAsync(registerUser);
 export const profile = catchAsync(profileFunction);
 export const updateProfile = catchAsync(updateProfileFunction);
