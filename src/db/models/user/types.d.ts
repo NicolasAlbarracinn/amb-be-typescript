@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import { Document, Model } from 'mongoose';
 
-type Roles = 'financista' | 'vendedores' | 'asociado' | 'potencialAsociado' | 'empleado';
+type Roles = 'financista' | 'vendedores' | 'asociado' | 'potencialAsociado' | 'empleado' | 'admin';
 
 export interface IUser {
   email: string;

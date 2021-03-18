@@ -42,3 +42,14 @@ export const protectedRoute = catchAsync(async (req: Request, res: Response, nex
   req.user = user;
   next();
 });
+
+//TODO: define roles and permisions
+export const restrictedTo = (...roles: Array<string>) => {
+  return catchAsync(async (req: Request, res: Response, next: NextFunction) => {
+    if (!roles.includes(req.user?.role!)) {
+      return next(new AppError('permisos insuficientes', 403));
+    }
+
+    next();
+  });
+};
