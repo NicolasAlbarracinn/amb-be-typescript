@@ -1,13 +1,13 @@
 import { Router } from 'express';
-import { protect } from '../middleware/validateUser';
+import { protectedRoute } from '../middleware/authorization';
 import { login, logout, profile, updateProfile } from '../controllers/userControllers';
 
 const userRoutes = Router();
 
 userRoutes.post('/login', login);
-userRoutes.get('/logout', logout);
+userRoutes.post('/logout', logout);
 
-userRoutes.use(protect);
+userRoutes.use(protectedRoute);
 userRoutes.post('/profile', profile);
 userRoutes.patch('/profile/edit', updateProfile);
 

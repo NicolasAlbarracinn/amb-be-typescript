@@ -2,6 +2,8 @@ import { RequestHandler } from 'express';
 import User from '../db/models/user';
 import catchAsync from '../utils/catchAsync';
 import AppError from '../utils/errorHandler';
+import { logIn } from '../utils/services/auth/login';
+import { logout as logoutUser } from '../utils/services/auth/logout';
 
 const loginFunction: RequestHandler = async (req, res, next) => {
   const { email, password } = req.body;
@@ -12,22 +14,11 @@ const loginFunction: RequestHandler = async (req, res, next) => {
 
   const user = await User.findByCredentials(req.body.email, req.body.password);
 
-  const token = user.generateAuthToken();
-
-  const cookieTime = process.env.COOKIE_EXPIRATION_TIME || '864000';
-
-  const cookieOptions = {
-    expires: new Date(Date.now() + cookieTime),
-    httpOnly: true,
-    secure: process.env.NODE_ENV === 'production',
-  };
-
-  res.cookie('jwt', token, cookieOptions);
+  logIn(req, user._id || '');
 
   const { firstName, lastName, completed, image, role } = user;
   res.status(201).json({
     status: 'success',
-    token,
     user: {
       email,
       firstName,
@@ -81,8 +72,8 @@ const updateProfileFunction: RequestHandler = async (req, res, next) => {
   });
 };
 
-const logoutFunction: RequestHandler = (req, res) => {
-  res.clearCookie('jwt');
+const logoutFunction: RequestHandler = async (req, res) => {
+  await logoutUser(req, res);
   res.status(200).json({ status: 'success' });
 };
 

@@ -16,5 +16,5 @@ export interface IUserDoc extends IUser, Document {
 }
 
 export interface IUserModel extends Model<IUserDoc> {
-  findByCredentials(email: string, password: string): Promise<any>;
+  findByCredentials(email: string, password: string): Promise<IUserDoc>;
 }

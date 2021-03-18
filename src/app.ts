@@ -1,17 +1,20 @@
 import express, { Request } from 'express';
-import cookieParser from 'cookie-parser';
 import cors from 'cors';
 
 import routes from './routers/index';
 import AppError from './utils/errorHandler';
+import { createSession } from './utils/createSession';
 import { errorRequestHandler } from './middleware/errorRequestHandler';
+import { activeSession } from './middleware/authorization';
 
 const app = express();
 
 app.use(cors<Request>());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(cookieParser());
+
+app.use(createSession());
+app.use(activeSession);
 
 app.use('/api', routes);
 
