@@ -44,4 +44,6 @@ export const UserSchemaFields: Record<keyof IUser, any> = {
     enum: ['financista', 'vendedores', 'asociado', 'potencialAsociado', 'empleado'],
     default: 'potencialAsociado',
   },
+  passwordResetToken: String,
+  passwordResetExpires: Date,
 };

@@ -11,10 +11,13 @@ export interface IUser {
   image?: string;
   completed?: string;
   role: Roles;
+  passwordResetToken?: string;
+  passwordResetExpires?: string;
 }
 
 export interface IUserDoc extends IUser, Document {
   generateAuthToken(): string;
+  refreshPasswordToken(): string;
 }
 
 export interface IUserModel extends Model<IUserDoc> {

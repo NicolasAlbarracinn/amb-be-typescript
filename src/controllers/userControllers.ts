@@ -1,9 +1,12 @@
 import { RequestHandler } from 'express';
+import crypto from 'crypto';
 import User from '../db/models/user';
 import catchAsync from '../utils/catchAsync';
 import AppError from '../utils/errorHandler';
 import { logIn } from '../utils/services/auth/login';
 import { logout as logoutUser } from '../utils/services/auth/logout';
+import { sendEmail } from '../utils/services/mail';
+import { generateResetURL } from '../utils/generateResetURL';
 
 const loginFunction: RequestHandler = async (req, res, next) => {
   const { email, password } = req.body;
@@ -92,8 +95,63 @@ const registerUser: RequestHandler = async (req, res, next) => {
   });
 };
 
+const forgotPasswordUser: RequestHandler = async (req, res, next) => {
+  const user = await User.findOne({ email: req.body.email });
+
+  if (!user) return next(new AppError('El email proporcionado no exite', 404));
+
+  const resetToken = user.refreshPasswordToken();
+
+  await user.save({ validateBeforeSave: false });
+
+  try {
+    sendEmail({
+      to: user.email,
+      subject: 'reset password',
+      text: `forgot pass: enter here ${generateResetURL(resetToken, user._id)}`,
+    });
+
+    res.status(200).json({
+      status: 'success',
+      message: `Token enviado al email ${user.email}`,
+    });
+  } catch (err) {
+    user.passwordResetExpires = undefined;
+    user.passwordResetToken = undefined;
+
+    await user.save({ validateBeforeSave: false });
+
+    return next(new AppError('No pudimos enviar el email, por favor intente mas tarde', 404));
+  }
+};
+
+export const resetUserPassword: RequestHandler = async (req, res, next) => {
+  const hashedToken = crypto.createHash('sha256').update(req.params.token).digest('hex');
+
+  const user = await User.findOne({
+    passwordResetToken: hashedToken,
+    passwordResetExpires: { $gt: Date.now().toString() },
+  });
+
+  if (!user) return next(new AppError('Token invalido', 400));
+
+  user.password = req.body.password;
+  user.passwordResetExpires = undefined;
+  user.passwordResetToken = undefined;
+
+  await user.save();
+
+  logIn(req, user.id);
+
+  res.status(200).json({
+    status: 'success',
+  });
+};
+
 export const login = catchAsync(loginFunction);
 export const logout = catchAsync(logoutFunction);
 export const registration = catchAsync(registerUser);
 export const profile = catchAsync(profileFunction);
 export const updateProfile = catchAsync(updateProfileFunction);
+export const forgotPassword = catchAsync(forgotPasswordUser);
+export const resetPassword = catchAsync(resetUserPassword);

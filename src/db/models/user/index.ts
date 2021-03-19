@@ -1,9 +1,12 @@
 import { Schema, model, HookNextFunction, ToObjectOptions } from 'mongoose';
-import jwt from 'jsonwebtoken';
+import crypto from 'crypto';
 import bcrypt from 'bcryptjs';
+import jwt from 'jsonwebtoken';
 
 import { IUserDoc, IUserModel } from './types';
 import { UserSchemaFields } from './schema';
+
+import { RESET_PASS_EXPIRATION_TIME } from '../../../config';
 
 const UserSchema = new Schema(UserSchemaFields, {
   timestamps: true,
@@ -12,6 +15,15 @@ const UserSchema = new Schema(UserSchemaFields, {
 UserSchema.methods.generateAuthToken = function () {
   const token = jwt.sign({ _id: this._id.toString() }, process.env.JWT_SECRET || '');
   return token;
+};
+
+UserSchema.methods.refreshPasswordToken = function () {
+  const resetToken = crypto.randomBytes(32).toString('hex');
+
+  this.passwordResetToken = crypto.createHash('sha256').update(resetToken).digest('hex');
+  this.passwordResetExpires = Date.now() + RESET_PASS_EXPIRATION_TIME;
+
+  return resetToken;
 };
 
 UserSchema.statics.findByCredentials = async function (email: string, password: string) {
